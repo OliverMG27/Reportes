@@ -38,13 +38,15 @@
                             <small *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required','username')"
                                    class="text-danger">*Se requiere Contraseña*</small>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block mt-4 w-100">Iniciar Sesión</button>
+                        <button type="submit" class="btn btn-primary btn-block mt-4 w-100" asp-area="" asp-page="/Menu">Iniciar Sesión</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
     <!-- Otros elementos comunes, como pie de página o scripts -->
+    <a asp-page="/Menu/MenuI">Ir a Otra Página</a>
+
 </body>
 
 </html>
