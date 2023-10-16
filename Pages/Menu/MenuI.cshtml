@@ -4,6 +4,13 @@
 	ViewData["Title"] = "Home page";
 }
 
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +22,7 @@
     <div class="container-fluid">
         <div class="card-container row justify-content-center">
             <!-- Card 1 -->
-            <div class="card col-12 col-md-6 col-lg-3">
+            <div class="card col-8 col-md-3 col-sm-12">
                 <img src="https://img.freepik.com/vector-premium/logotipo-animales-granja-lechones-cerdo_119039-242.jpg?w=2000"
                      class="card-img-top" alt="10px">
                 <div class="card-body">
@@ -25,7 +32,7 @@
             </div>
 
             <!-- Card 2 -->
-            <div class="card col-12 col-md-6 col-lg-3">
+            <div class="card col-8 col-md-3 col-sm-12">
                 <img src="https://img.freepik.com/vector-premium/logotipo-animales-granja-lechones-cerdo_119039-242.jpg?w=2000"
                      class="card-img-top" alt="10px">
                 <div class="card-body">
@@ -38,7 +45,7 @@
     <div class="container-fluid">
         <div class="card-container row justify-content-center">
             <!-- Card 3 -->
-            <div class="card col-12 col-md-6 col-lg-3">
+            <div class="card col-8 col-md-3 col-sm-12">
                 <img src="https://img.freepik.com/vector-premium/logotipo-animales-granja-lechones-cerdo_119039-242.jpg?w=2000"
                      class="card-img-top" alt="10px">
                 <div class="card-body">
@@ -48,7 +55,7 @@
             </div>
 
             <!-- Card 4 -->
-            <div class="card col-12 col-md-6 col-lg-3">
+            <div class="card col-8 col-md-3 col-sm-12">
                 <img src="https://img.freepik.com/vector-premium/logotipo-animales-granja-lechones-cerdo_119039-242.jpg?w=2000"
                      class="card-img-top" alt="10px">
                 <div class="card-body">
@@ -61,8 +68,55 @@
 </body>
 </html>
 
+
+
 <style>
 
 
- 
+    .container {
+        display: flex;
+        justify-content: center;
+        /* Centrado horizontal */
+        align-items: center;
+        /* Centrado vertical */
+
+    }
+
+    .container2 {
+        display: flex;
+        justify-content: center;
+        /* Centrado horizontal */
+        align-items: center;
+        /* Centrado vertical */
+    }
+
+
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        /* Espacio entre tarjetas */
+    }
+
+
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+
+
+    .btn {
+        color: white;
+        background-color: #92002d;
+        text-align: center;
+        padding: 10px 20px;
+        line-height: 12px;
+    }
+
+
 </style>

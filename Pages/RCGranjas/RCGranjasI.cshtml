@@ -1,0 +1,108 @@
+﻿@page
+@model Reportes.Pages.RCGranjas.RCGranjasIModel
+@{
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container mt-4">
+        <div class="row">
+
+            <!-- Col 1-->
+            <div class="col-12 text-center">
+                <h2><strong>Análisis de cierre</strong></h2>
+                <h2><strong>de granjas</strong></h2>
+            </div>
+
+            <!-- col2  -->
+            <div class="col-md-4 col-sm-12 mt-2">
+                <label for="Empresa"><strong>Empresa:</strong></label>
+            </div>
+            <div class="col-md-8 col-sm-12 mt-2">
+                <select class="form-select" id="Empresa">
+                    <option selected>- - Selección - -</option>
+                    <option value="Op1-Empresa">Op 1</option>
+                    <option value="Op2-Empresa">Op 2</option>
+                    <!-- Add more options here -->
+                </select>
+            </div>
+
+            <!-- col 3 -->
+            <div class="col-md-4 col-sm-12 mt-2">
+                <label for="Granja"><strong>Granja:</strong></label>
+            </div>
+            <div class="col-md-8 col-sm-12 mt-2">
+                <select class="form-select" id="Granja">
+                    <option selected>- - Selección - -</option>
+                    <option value="Op1-Granja">Op 1</option>
+                    <option value="Op2-Granja">Op 2</option>
+                    <!-- Add more options here -->
+                </select>
+            </div>
+
+            <!-- col 4 -->
+            <div class="col-md-4 col-sm-12 mt-2">
+                <label for="NoEngorda"><strong>No. Engorda:</strong></label>
+            </div>
+            <div class="col-md-8 col-sm-12 mt-2">
+                <select class="form-select" id="NoEngorda">
+                    <option selected>No hay engordas registradas, revise por favor...</option>
+                    <option value="Op1-Engorda">Op 1</option>
+                    <option value="Op2-Engorda">Op 2</option>
+                    <!-- Add more options here -->
+                </select>
+            </div>
+
+            <!-- col 4 -->
+            <div class="col-md-4 col-sm-12 mt-2">
+                <label for="FechaEntrada"><strong>Fechas de entrada:</strong></label>
+            </div>
+            <div class="col-md-8 col-sm-12 mt-2">
+                <input type="date" class="custom-date-input" id="FechaEntrada">
+            </div>
+
+            <!-- col 5 -->
+            <div class="col-md-4 col-sm-12 mt-2">
+                <label for="FechaSalida"><strong>Fechas de salida:</strong></label>
+            </div>
+            <div class="col-md-8 col-sm-12 mt-2">
+                <input type="date" class="custom-date-input" id="FechaSalida">
+            </div>
+
+            <!-- col 6 -->
+            <div class="col-md-12 col-sm-12 mt-2">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Lotes: </span>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+            </div>
+
+            <!-- col 7 -->
+            <div class="col-md-6 col-sm-12 mt-2 input-container">
+                <button type="button" class="btn btn-primary">Generar análisis</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+<style>
+
+    .btn {
+        color: white;
+        background-color: #92002d;
+        text-align: center;
+        padding: 10px 20px;
+        line-height: 12px;
+    }
+
+</style>
