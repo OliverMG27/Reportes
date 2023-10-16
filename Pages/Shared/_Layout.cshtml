@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Reportes</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Reportes.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <div class="toolbar" role="banner">
+            <img src="https://bioblue.com/wp-content/uploads/2020/08/Nu3-logo@2x_1.png" alt="Logo" class="logo">
+        </div>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+       
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
+<style>
+    .toolbar {
+        align-items: center;
+        background-color: #92002d;
+        color: white;
+    }
+
+    .logo {
+        width: 65px; /* Ajusta el ancho de tu imagen */
+        height: auto; /* Mantén la proporción original */
+        margin-left: 3%;
+    }
+</style>
