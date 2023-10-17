@@ -1,117 +1,90 @@
 ﻿@page
 @model Reportes.Pages.RPesadas.RPesadasIModel
 @{
+    ViewData["Title"] = "Pesadas";
 }
 
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@ViewData["Title"]Sistema de reportes</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+    <div class="container mt-4">
+        <div class="row">
 
-<div class="container mt-4">
-    <div class="row">
+            <!-- Col 1-->
+            <div class="col-12 text-center">
+                <h2><strong>Consultas en Pesadas de Cerdos</strong></h2>
+            </div>
 
-        <!-- Col 1 -->
-        <div class="col-12 text-center">
-            <h2><strong>Reporte de consumo de</strong></h2>
-            <h2><strong>Alimento, Medicina y Diversos</strong></h2>
-        </div>
+            <!-- col2  -->
+            <div class="col-md-4 col-sm-12 mt-2">
+                <label for="Empresa"><strong>Empresa:</strong></label>
+            </div>
+            <div class="col-md-8 col-sm-12 mt-2">
+                <select class="form-select" id="Empresa">
+                    <option selected>- - Selección - -</option>
+                    <option value="Op1-Empresa">Op 1</option>
+                    <option value="Op2-Empresa">Op 2</option>
+                    <!-- Add more options here -->
+                </select>
+            </div>
 
-        <!-- col2 -->
-        <div class="col-md-4 col-sm-12 mt-2">
-            <label for="selectBox text"><strong>Empresa:</strong></label>
-        </div>
-        <div class="col-md-8 col-sm-12 mt-2">
-            <select class="form-select" aria-label="Default select example">
-                <option selected>- - Selección - -</option>
-                <option value="Op1-Empresa">Op 1</option>
-                <!-- Add more options here -->
-            </select>
-        </div>
+            <!-- col 3 -->
+            <div class="col-md-4 col-sm-12 mt-2">
+                <label for="Granja"><strong>Granja:</strong></label>
+            </div>
+            <div class="col-md-8 col-sm-12 mt-2">
+                <select class="form-select" id="Granja">
+                    <option selected>- - Selección - -</option>
+                    <option value="Op1-Granja">Op 1</option>
+                    <option value="Op2-Granja">Op 2</option>
+                    <!-- Add more options here -->
+                </select>
+            </div>
 
-        <!-- col 3 -->
-        <div class="col-md-4 col-sm-12 mt-2">
-            <label for="selectBox text"><strong>Granja:</strong></label>
-        </div>
-        <div class="col-md-8 col-sm-12 mt-2">
-            <select class="form-select" aria-label="Default select example">
-                <option selected>- - Selección - -</option>
-                <option value="Op1-Granja">Op 1</option>
-                <!-- Add more options here -->
-            </select>
-        </div>
+            <!-- col 4 -->
+            <div class="col-md-4 col-sm-12 mt-2">
+                <label for="FechasEntrada"><strong>Fechas de entrada:</strong></label>
+            </div>
+            <div class="col-md-8 col-sm-12 mt-2">
+                <input type="date" class="custom-date-input" id="FechasEntrada" />
+            </div>
 
-        <!-- col 4 -->
-        <div class="col-md-4 col-sm-12 mt-2">
-            <label for="selectBox text"><strong>Fechas de entrada:</strong></label>
-        </div>
-        <div class="col-md-8 col-sm-12 mt-2">
-            <input type="date" class="custom-date-input" />
-        </div>
+            <!-- col 5 -->
+            <div class="col-md-4 col-sm-12 mt-2">
+                <label for="FechasSalida"><strong>Fechas de salida:</strong></label>
+            </div>
+            <div class="col-md-8 col-sm-12 mt-2">
+                <input type="date" class="custom-date-input" id="FechasSalida" />
+            </div>
 
-        <!-- col 5 -->
-        <div class="col-md-4 col-sm-12 mt-2">
-            <label for="selectBox text"><strong>Fechas de salida:</strong></label>
-        </div>
-        <div class="col-md-8 col-sm-12 mt-2">
-            <input type="date" class="custom-date-input" />
-        </div>
 
-        <!-- col 6 -->
-        <div class="col-md-12 col-sm-12 mt-2"></div>
 
-            <!-- col 9 -->
+            <!-- col 6 -->
             <div class="col-md-12 col-sm-12 mt-2">
                 <br />
             </div>
 
-        <!-- col 7 -->
-        <div class="col-md-8 col-sm-12 mt-2">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                    <strong>Presentar productos con stock CERO</strong>
-                </label>
-            </div>
-        </div>
 
-        <div class="col-md-12 col-sm-12 mt-2">
-            <button type="button" class="btn btn-primary">Kardex de Alimento (Entradas/Salidas)</button>
-        </div>
-
-
-
-            <!-- col 9 -->
-            <div class="col-md-12 col-sm-12 mt-2">
-             <br />
+            <!-- col 6 -->
+            <div class="col-md-4 col-sm-12 mt-2">
+                <br />
+                <br/>
             </div>
 
 
-        <!-- col 8 -->
-        <div class="col-md-12 col-sm-12 mt-2">
-            <label for="selectBox text">
-                <strong>
-                    Nota: En este reporte No aplica el excluir los productos con stock CERO, es decir, se muestran Todos sin excepción
-                </strong>
-            </label>
+            <div class="col-md-4 col-sm-12 mt-2">
+                <button type="button" class="btn btn-primary">Mortalidades por concepto</button>
+            </div>
         </div>
-
-        <!-- col 9 -->
-        <div class="col-md-12 col-sm-12 mt-2">
-            <button type="button" class="btn btn-primary">Solo consumo de Alimento (Salidas)</button>
-        </div>
-
-
     </div>
-</div>
-
 </body>
-
 </html>
+
 
 
 <style>
