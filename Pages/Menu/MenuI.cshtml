@@ -7,14 +7,20 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@ViewData["Title"]Sistema de reportes</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 </head>
+
+
 <body>
+
+
     <div class="container-fluid">
         <div class="card-container row justify-content-center">
+
             <!-- Card 1 -->
             <div class="card col-8 col-md-3 col-sm-12">
                 <a asp-page="/RMortalidades/RMortalidadesI">
@@ -28,6 +34,7 @@
                 </div>
                 </a>
             </div>
+
             <!-- Card 2 -->
             <div class="card col-8 col-md-3 col-sm-12" asp-page="/RPesadas/RPesadasI">
                 <a asp-page="/RPesadas/RPesadasI">
@@ -49,6 +56,7 @@
     </div>
     <div class="container-fluid">
         <div class="card-container row justify-content-center">
+
             <!-- Card 3 -->
             <div class="card col-8 col-md-3 col-sm-12" asp-page="/RConsumo/RConsumosI">
                 <a asp-page="/RConsumo/RConsumosI">
@@ -77,6 +85,11 @@
             </div>
         </div>
     </div>
+
+
+
+
+
 </body>
 </html>
 
@@ -94,6 +107,7 @@
 
     }
 
+
     .container2 {
         display: flex;
         justify-content: center;
@@ -102,11 +116,13 @@
         /* Centrado vertical */
     }
 
+
     .card:hover {
         /* Estilos cuando el mouse está sobre el card */
         transform: scale(1.1);
         /* Aumenta el tamaño del card al 110% */
     }
+
 
     .card-container {
         display: flex;
@@ -117,14 +133,12 @@
     }
 
 
-
     .card-body {
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
-
 
 
     .btn {
@@ -135,9 +149,11 @@
         line-height: 12px;
     }
 
+
     a {
         color: black; /* Cambia 'blue' al color que desees */
         text-decoration: none; /* Para eliminar el subrayado predeterminado en los enlaces */
     }
+
 
 </style>
