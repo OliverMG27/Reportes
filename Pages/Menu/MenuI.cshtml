@@ -5,7 +5,6 @@
 }
 
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,6 +17,7 @@
         <div class="card-container row justify-content-center">
             <!-- Card 1 -->
             <div class="card col-8 col-md-3 col-sm-12">
+                <a asp-page="/RMortalidades/RMortalidadesI">
                 <img src="https://img.freepik.com/vector-premium/logotipo-animales-granja-lechones-cerdo_119039-242.jpg?w=2000"
                      class="card-img-top" alt="10px">
                 <div class="card-body">
@@ -26,10 +26,11 @@
                     <br />
                     <a asp-page="/RMortalidades/RMortalidadesI" class="btn btn-primary">Click</a>
                 </div>
+                </a>
             </div>
-
             <!-- Card 2 -->
-            <div class="card col-8 col-md-3 col-sm-12">
+            <div class="card col-8 col-md-3 col-sm-12" asp-page="/RPesadas/RPesadasI">
+                <a asp-page="/RPesadas/RPesadasI">
                 <img src="https://img.freepik.com/vector-premium/logotipo-animales-granja-lechones-cerdo_119039-242.jpg?w=2000"
                      class="card-img-top" alt="10px">
                 <div class="card-body">
@@ -39,13 +40,18 @@
                     <br />
                     <a asp-page="/RPesadas/RPesadasI" class="btn btn-primary">Click</a>
                 </div>
+                </a>
             </div>
         </div>
+    </div>
+    <div class="col-md-12 col-sm-12 mt-2">
+        <br />
     </div>
     <div class="container-fluid">
         <div class="card-container row justify-content-center">
             <!-- Card 3 -->
-            <div class="card col-8 col-md-3 col-sm-12">
+            <div class="card col-8 col-md-3 col-sm-12" asp-page="/RConsumo/RConsumosI">
+                <a asp-page="/RConsumo/RConsumosI">
                 <img src="https://img.freepik.com/vector-premium/logotipo-animales-granja-lechones-cerdo_119039-242.jpg?w=2000"
                      class="card-img-top" alt="10px">
                 <div class="card-body">
@@ -53,19 +59,21 @@
                     <br />
                     <a asp-page="/RConsumo/RConsumosI" class="btn btn-primary">Click</a>
                 </div>
+                </a>
             </div>
 
             <!-- Card 4 -->
             <div class="card col-8 col-md-3 col-sm-12">
+                <a asp-page="/RCGranjas/RCGranjasI">
                 <img src="https://img.freepik.com/vector-premium/logotipo-animales-granja-lechones-cerdo_119039-242.jpg?w=2000"
                      class="card-img-top" alt="10px">
                 <div class="card-body">
                     <h5 class="card-title"><strong>Reporte de análisis cierre de granjas</strong></h5>
                     <br />
                     <br />
-
                     <a asp-page="/RCGranjas/RCGranjasI" class="btn btn-primary">Click</a>
                 </div>
+                </a>
             </div>
         </div>
     </div>
@@ -94,6 +102,11 @@
         /* Centrado vertical */
     }
 
+    .card:hover {
+        /* Estilos cuando el mouse está sobre el card */
+        transform: scale(1.1);
+        /* Aumenta el tamaño del card al 110% */
+    }
 
     .card-container {
         display: flex;
@@ -122,5 +135,9 @@
         line-height: 12px;
     }
 
+    a {
+        color: black; /* Cambia 'blue' al color que desees */
+        text-decoration: none; /* Para eliminar el subrayado predeterminado en los enlaces */
+    }
 
 </style>
