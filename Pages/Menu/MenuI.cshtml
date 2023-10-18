@@ -129,10 +129,14 @@
     }
 
 
-  .card {
+    .card {
         border: 2px solid #92002d;
         border-radius: 10px; /* Esto redondeará los bordes de la tarjeta */
-        box-shadow: 0 0 10px #92002d; /* Agrega una sombra roja */
+        transition: box-shadow 0.3s; /* Agrega una transición para suavizar el efecto */
     }
+
+        .card:hover {
+            box-shadow: 0 0 10px #92002d; /* Agrega la sombra roja cuando se hace hover */
+        }
 
 </style>
