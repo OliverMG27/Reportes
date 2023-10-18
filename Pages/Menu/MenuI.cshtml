@@ -15,7 +15,6 @@
 
 <body>
 
-
     <!-- Col 1-->
     <div class="col-12 text-center">
         <h2><strong>Menú de reportes</strong></h2>
@@ -26,13 +25,12 @@
         <div class="row">
             <div class="col-md-3 col-sm-6">
                 <!-- Card 1 -->
-                <div class="card mt-3 mb-3">
+                <div class="card d-flex flex-column mt-3 mb-3">
                     <a asp-page="/RMortalidades/RMortalidadesI">
                         <img src="https://img.freepik.com/vector-premium/logotipo-animales-granja-lechones-cerdo_119039-242.jpg?w=2000"
                              class="card-img-top" alt="10px">
-                        <div class="card-body">
+                        <div class="card-body flex-fill">
                             <h5 class="card-title"><strong>Reporte de mortalidades</strong></h5>
-                            <br />
                             <br />
                             <a asp-page="/RMortalidades/RMortalidadesI" class="btn btn-primary">Click</a>
                         </div>
@@ -41,13 +39,12 @@
             </div>
             <div class="col-md-3 col-sm-6">
                 <!-- Card 2 -->
-                <div class="card mt-3 mb-3">
+                <div class="card d-flex flex-column mt-3 mb-3">
                     <a asp-page="/RPesadas/RPesadasI">
                         <img src="https://img.freepik.com/vector-premium/logotipo-animales-granja-lechones-cerdo_119039-242.jpg?w=2000"
                              class="card-img-top" alt="10px">
-                        <div class="card-body">
+                        <div class="card-body flex-fill">
                             <h5 class="card-title"><strong>Reporte de pesadas</strong></h5>
-                            <br />
                             <br />
                             <br />
                             <a asp-page="/RPesadas/RPesadasI" class="btn btn-primary">Click</a>
@@ -57,13 +54,12 @@
             </div>
             <div class="col-md-3 col-sm-6">
                 <!-- Card 3 -->
-                <div class="card mt-3 mb-3">
+                <div class="card d-flex flex-column mt-3 mb-3">
                     <a asp-page="/RConsumo/RConsumosI">
                         <img src="https://img.freepik.com/vector-premium/logotipo-animales-granja-lechones-cerdo_119039-242.jpg?w=2000"
                              class="card-img-top" alt="10px">
-                        <div class="card-body">
+                        <div class="card-body flex-fill">
                             <h5 class="card-title"><strong>Reporte de consumo de alimento, medicina y diversos</strong></h5>
-                            <br />
                             <a asp-page="/RConsumo/RConsumosI" class="btn btn-primary">Click</a>
                         </div>
                     </a>
@@ -71,13 +67,12 @@
             </div>
             <div class="col-md-3 col-sm-6">
                 <!-- Card 4 -->
-                <div class="card mt-3 mb-3">
+                <div class="card d-flex flex-column mt-3 mb-3">
                     <a asp-page="/RCGranjas/RCGranjasI">
                         <img src="https://img.freepik.com/vector-premium/logotipo-animales-granja-lechones-cerdo_119039-242.jpg?w=2000"
                              class="card-img-top" alt="10px">
-                        <div class="card-body">
+                        <div class="card-body flex-fill">
                             <h5 class="card-title"><strong>Reporte de análisis cierre de granjas</strong></h5>
-                            <br />
                             <br />
                             <a asp-page="/RCGranjas/RCGranjasI" class="btn btn-primary">Click</a>
                         </div>
@@ -94,51 +89,28 @@
 
 
 
+
 <style>
 
-
-    .container {
-        display: flex;
-        justify-content: center;
-        /* Centrado horizontal */
-        align-items: center;
-        /* Centrado vertical */
-
+    /* Personaliza la altura de las tarjetas */
+    .card {
+        height: 100%; /* Establece la altura deseada */
+        width:auto;
     }
 
 
-    .container2 {
-        display: flex;
-        justify-content: center;
-        /* Centrado horizontal */
-        align-items: center;
-        /* Centrado vertical */
-    }
+        .card:hover {
+            /* Estilos cuando el mouse está sobre el card */
+            transform: scale(1.1);
+            /* Aumenta el tamaño del card al 110% */
+        }
 
 
-    .card:hover {
-        /* Estilos cuando el mouse está sobre el card */
-        transform: scale(1.1);
-        /* Aumenta el tamaño del card al 110% */
-    }
-
-
-    .card-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-        /* Espacio entre tarjetas */
-    }
-
-
-    .card-body {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
+        /* Asegura que las imágenes se ajusten a la altura de las tarjetas sin distorsionarse */
+        .card .img {
+            max-height: 100%;
+            width: auto;
+        }
 
     .btn {
         color: white;
@@ -146,7 +118,9 @@
         text-align: center;
         padding: 10px 20px;
         line-height: 12px;
+        margin-button:i;
     }
+
 
 
     a {
