@@ -7,7 +7,7 @@ namespace Reportes.Pages
     [BindProperties]
     public class IndexModel : PageModel
     {
-        [Required(ErrorMessage = "*Se requiere el Usuario"), EmailAddress]
+        [Required(ErrorMessage = "*Se requiere el Usuario")]
         public string Usuario { get; set; } = "";
 
         [Required(ErrorMessage = "*Se requiere la Clave")]
