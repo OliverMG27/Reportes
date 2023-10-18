@@ -3,136 +3,54 @@
 @{
     ViewData["Title"] = "Login";
 }
-<!DOCTYPE html>
-<html>
 
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@ViewData["Title"] - Sistema de Reportes</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="~/css/custom.css"> <!-- Tus estilos personalizados -->
-</head>
+<div class="card mx-auto"class="rounded-7" style="width: 400px; ">
+    <div class="card-body">
+        <h2 class="text-center mb-5">Inicio Sesion</h2>
 
-<body>
-    <div class="container-fluid h-100 outer d-flex justify-content-center align-items-center">
-        <div class="col-md-6">
-            <div class="panel border bg-white p-3">
-                <div class="panel-heading text-center">
-                    <h3 class="pt-3 font-weight-bold">Inicio de Sesión</h3>
-                </div>
-                <div class="panel-body">
-                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-                        <div class="form-group">
-                            <div class="input-field" [class.error]="loginForm.controls['username'].dirty && loginForm.hasError('required','username')">
-                                <span class="fa fa-user p-2"></span>
-                                <input formControlName="username" type="text" placeholder="Usuario" required>
-                            </div>
-                            <small *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required','username')"
-                                   class="text-danger">*Se requiere usuario*</small>
-                        </div>
-                        <div class="form-group">
-                            <div class="input-field" [class.error]="loginForm.controls['username'].dirty && loginForm.hasError('required','username')">
-                                <span class="fa fa-user p-2"></span>
-                                <input formControlName="password" type="text" placeholder="Contraseña" required>
-                            </div>
-                            <small *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required','username')"
-                                   class="text-danger">*Se requiere Contraseña*</small>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block mt-4 w-100" asp-area="" asp-page="/Menu">Iniciar Sesión</button>
-                    </form>
-                </div>
+        @if (Model.errorMessage.Length > 0)
+        {
+            <div class='alert alert-warning alert-dismissible fade show' role='alert'>
+                <strong>@Model.errorMessage</strong>
+                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
             </div>
-        </div>
-    </div>
-    <!-- Otros elementos comunes, como pie de página o scripts -->
-    <a asp-page="/Menu/MenuI">----------> Ingresar Menú <----------</a>
-
-</body>
-
-</html>
-
-<style>
-
-
-    .outer {
-        height: 100vh;
-    }
-
-    .panel-heading {
-        text-align: center;
-        margin-top: 10px;
-    }
-
-    #forget {
-        min-width: 100px;
-        margin-left: auto;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-    a:hover {
-        text-decoration: none;
-    }
-
-    .form-inline label {
-        padding-left: 10px;
-        margin: 0;
-        cursor: pointer;
-    }
-
-    .btn {
-        margin-top: 20px;
-        border-radius: 15px;
-    }
-
-    .panel {
-        min-height: 338px;
-        box-shadow: 20px 20px 80px rgb(218, 218, 218);
-        border-radius: 12px;
-        margin-top: 100px;
-    }
-
-    .input-field {
-        border-radius: 5px;
-        padding: 5px;
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-        border: 1px solid #ddd;
-        color: #92002d;
-    }
-
-        .input-field.error {
-            border: 1px solid red;
-            color: red;
+        }
+        else if (Model.successMessage.Length > 0)
+        {
+            <div class='alert alert-success alert-dismissible fade show' role='alert'>
+                <strong>@Model.successMessage</strong>
+                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+            </div>
         }
 
-    input[type='text'],
-    input[type='password'] {
-        border: none;
-        outline: none;
-        box-shadow: none;
-        width: 100%;
+        <form method="post">
+            <div class="mb-3">
+                <label class="form-label">Usuario</label>
+                <input class="form-control" asp-for="Usuario">
+                <span asp-validation-for="Usuario" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Clave</label>
+                <input class="form-control" type="password" asp-for="Clave">
+                <span asp-validation-for="Clave" class="text-danger"></span>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col d-grid">
+                    <button type="submit" class="btn btn-primary" href="/MenuI">Login</button>
+                </div>
+                <div class="col d-grid">
+                    <a class="btn btn-outline-primary" href="/Index" role="button">Cancel</a>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+<style>
+    .card{
+        background-color: ;
     }
-
-    .fa-eye-slash.btn {
-        border: none;
-        outline: none;
-        box-shadow: none;
-    }
-
-    img {
-        width: 40px;
-        height: 40px;
-        object-fit: cover;
-        position: relative;    
-    }
-
-
-    a {
-        color: black; /* Cambia 'blue' al color que desees */
-        text-decoration: none; /* Para eliminar el subrayado predeterminado en los enlaces */
-    }
-
-
 </style>
