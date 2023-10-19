@@ -14,7 +14,6 @@
 </head>
 <body>
 
-    <!-- Contenedor principal -->
     <div class="container mt-4">
         <div class="row">
 
@@ -23,14 +22,18 @@
                 <h2><strong>Mortalidad</strong></h2>
             </div>
 
+            @* Col 2 *@
             <div class="col-md-12 col-sm-12 mt-2">
                 <br />
             </div>
 
-            <!-- col2 -->
+
+            <!-- Col 3 -->
             <div class="col-md-4 col-sm-12 mt-2">
                 <label for="selectBox text"><strong>Empresa:</strong></label>
             </div>
+
+            @* Col 3 *@
             <div class="col-md-8 col-sm-12 mt-2">
                 <select class="form-select" aria-label="Default select example">
                     <option selected>- - Selección - -</option>
@@ -40,10 +43,13 @@
                 </select>
             </div>
 
-            <!-- col 3 -->
+
+            <!-- Col 4 -->
             <div class="col-md-4 col-sm-12 mt-2">
                 <label for="selectBox text"><strong>Granja:</strong></label>
             </div>
+
+            @* Col 4 *@
             <div class="col-md-8 col-sm-12 mt-2">
                 <select class="form-select" aria-label="Default select example">
                     <option selected>- - Selección - -</option>
@@ -53,15 +59,19 @@
                 </select>
             </div>
 
-            <!-- col 4 -->
+
+            <!-- Col 5 -->
             <div class="col-md-4 col-sm-12 mt-2">
                 <label for="selectBox text"><strong>Fechas de entrada:</strong></label>
             </div>
+
+            @* Col 5 *@
             <div class="col-md-8 col-sm-12 mt-2">
                 <input type="date" class="custom-date-input" />
             </div>
 
-            <!-- col 5 -->
+
+            <!-- Col 6 -->
             <div class="col-md-4 col-sm-12 mt-2">
                 <label for "selectBox text"><strong>Fechas de salida:</strong></label>
             </div>
@@ -69,19 +79,30 @@
                 <input type="date" class="custom-date-input" />
             </div>
 
-            <!-- col 6 -->
+
+            <!-- Col 7 -->
             <div class="col-md-12 col-sm-12 mt-2">
                 <br />
             </div>
 
-            <!-- col 7 -->
+
+            <!-- Col 8 -->
             <div class="col-md-4 col-sm-12 mt-2">
                 <button type="button" class="btn btn-primary">Mortalidades por semana</button>
             </div>
-            <div class="col-md-4 col-sm-12 mt-2"></div>
+
+
+            @* Col 9 *@
+            <div class="col-md-4 col-sm-12 mt-2">
+            </div>
+
+
+            @* Col 10 *@
             <div class="col-md-4 col-sm-12 mt-2">
                 <button type="button" class="btn btn-primary">Mortalidades por concepto</button>
             </div>
+
+
 
         </div>
     </div>
@@ -94,6 +115,8 @@
 
 <style>
 
+
+    /* Estilos boton */
     .btn {
         color: white;
         background-color: #92002d;
@@ -101,5 +124,8 @@
         padding: 10px 20px;
         line-height: 12px;
     }
+
+
+
 
 </style>

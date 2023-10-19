@@ -20,6 +20,8 @@
         <h2><strong></strong></h2>
     </div>
 
+
+    @* Col 2 *@
     <div class="container text-center">
         <div class="row">
             <div class="col-md-3 col-sm-6">
@@ -81,6 +83,7 @@
         </div>
     </div>
 
+
 </body>
 </html>
 
@@ -91,51 +94,48 @@
 
 <style>
 
-    /* Personaliza la altura de las tarjetas */
-    .card {
-        height: 100%; /* Establece la altura deseada */
-        width:auto;
-    }
 
-
-        .card:hover {
-            /* Estilos cuando el mouse está sobre el card */
-            transform: scale(1.1);
-            /* Aumenta el tamaño del card al 110% */
+        /* Medidas card */
+        .card {
+            height: 100%;
+            width:auto;
         }
 
 
-        /* Asegura que las imágenes se ajusten a la altura de las tarjetas sin distorsionarse */
+        /* Ajusta imagen a la card */
         .card .img {
             max-height: 100%;
             width: auto;
         }
 
-    .btn {
-        color: white;
-        background-color: #92002d;
-        text-align: center;
-        padding: 10px 20px;
-        line-height: 12px;
-        margin-button:i;
-    }
 
-
-
-    a {
-        color: black; /* Cambia por el color que desees */
-        text-decoration: none; /* Para eliminar el subrayado predeterminado en los enlaces */
-    }
-
-
-    .card {
-        border: 2px solid #92002d;
-        border-radius: 10px; /* Esto redondeará los bordes de la tarjeta */
-        transition: box-shadow 0.3s; /* Agrega una transición para suavizar el efecto */
-    }
-
-        .card:hover {
-            box-shadow: 0 0 10px #92002d; /* Agrega la sombra roja cuando se hace hover */
+        /* Estilos botones */
+        .btn {
+            color: white;
+            background-color: #92002d;
+            text-align: center;
+            padding: 10px 20px;
+            line-height: 12px;
+            margin-button:i;
         }
+
+
+        /* Estilos para el texto de las cards */
+        a {
+            color: black; 
+            text-decoration: none; 
+        }
+
+
+        /* Estilos card */
+        .card {
+        border: 2px solid #92002d;
+            border-radius: 10px; 
+            transition: box-shadow 0.3s; 
+        }
+
+                .card:hover {
+                    box-shadow: 0 0 20px #92002d; 
+                }
 
 </style>
