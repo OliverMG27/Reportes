@@ -2,5 +2,8 @@
 {
     internal class SqlConnection
     {
+        public SqlConnection(SqlConnection connection)
+        {
+        }
     }
 }
