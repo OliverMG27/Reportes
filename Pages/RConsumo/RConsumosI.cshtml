@@ -6,15 +6,17 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
 </head>
+
 <body>
 
-
+    @* Container principal *@
     <div class="container mt-4">
         <div class="row d-flex flex-column align-items-stretch">
 
@@ -24,6 +26,7 @@
                 <h2><strong>Reporte de consumo de Alimento, Medicina y Diversos</strong></h2>
             </div>
 
+            <!-- Col Espacio -->
             <div class="col-md-12 col-sm-12 mt-2">
                 <br />
             </div>
@@ -42,13 +45,12 @@
                 </select>
             </div>
 
-
             <!-- Col 3 -->
             <div class="col-md-4 col-sm-12 mt-2">
                 <label for="selectBox text"><strong>Granja:</strong></label>
             </div>
 
-            @* Col 3 *@
+            <!-- Col 3  -->
             <div class="col-md-8 col-sm-12 mt-2">
                 <select class="form-select" aria-label="Default select example">
                     <option selected>- - Selección - -</option>
@@ -58,93 +60,191 @@
                 </select>
             </div>
 
+            @* Container doble 1 *@
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <!-- Col 4 -->
+                        <div class="col-md-4 col-sm-12 mt-2">
+                            <label for="selectBox text"><strong>Fechas de entrada:</strong></label>
+                        </div>
 
-            <!-- Col 4 -->
-            <div class="col-md-4 col-sm-12 mt-2">
-                <label for="selectBox text"><strong>Fechas de entrada:</strong></label>
-            </div>
-
-            @* Col 4 *@
-            <div class="col-md-8 col-sm-12 mt-2">
-                <input type="date" class="custom-date-input" />
-            </div>
-
-
-            <!-- Col 5 -->
-            <div class="col-md-4 col-sm-12 mt-2">
-                <label for="selectBox text"><strong>Fechas de salida:</strong></label>
-            </div>
-
-            @* Col 5 *@
-            <div class="col-md-8 col-sm-12 mt-2">
-                <input type="date" class="custom-date-input" />
-            </div>
+                        <!-- Col 4  -->
+                        <div class="col-md-8 col-sm-12 mt-2">
+                            <input type="date" class="custom-date-input" />
+                        </div>
 
 
-            <!-- Col 6 -->
-            <div class="col-12 mt-2">
-            </div>
+                        <!-- Col 5 -->
+                        <div class="col-md-4 col-sm-12 mt-2">
+                            <label for="selectBox text"><strong>Fechas de salida:</strong></label>
+                        </div>
+
+                        <!-- Col 5  -->
+                        <div class="col-md-8 col-sm-12 mt-2">
+                            <input type="date" class="custom-date-input" />
+                        </div>
 
 
-            <!-- Col 7 -->
-            <div class="col-md-12 col-sm-12 mt-2">
-                <br />
-            </div>
+                        <!-- Col 6 -->
+                        <div class="col-12 mt-2">
+                        </div>
 
-            <!-- Col 8 -->
-            <div class="col-12 col-md-12 col-sm-12 mt-2">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        <strong>Presentar productos con stock CERO</strong>
-                    </label>
+
+                        <!-- Col 7 -->
+                        <div class="col-md-12 col-sm-12 mt-2">
+                        </div>
+
+                    </div>
+
+
+                    <div class="col">
+                        <!-- Col 13 -->
+                        <div class="col-12 mt-2">
+                            <strong>
+                                Tipo de consumo:
+                            </strong>
+                        </div>
+
+                        <!-- Col 14 -->
+                        <div class="col-12 mt-2">
+                            @* Check marcado *@
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                       id="flexRadioDefault" checked>
+                                <label class="form-check-label" for="flexRadioDefault">
+                                    Alimento
+                                </label>
+                            </div>
+
+                            @* Check 2 *@
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                       id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Materia Prima
+                                </label>
+                            </div>
+
+                            @* Check 3 *@
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                       id="flexRadioDefault2">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Medicina / Vacunas
+                                </label>
+                            </div>
+
+                            @* Check 4 *@
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                       id="flexRadioDefault3">
+                                <label class="form-check-label" for="flexRadioDefault3">
+                                    Diversos
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-
-            @* Col 9 *@
-            <div class="col-12 col-md-12 col-sm-12 mt-2">
-                <button type="button" class="btn btn-primary">Kardex de Alimento (Entradas/Salidas)</button>
-            </div>
-
-
-            <!-- Col 10 -->
-            <div class="col-md-12 col-sm-12 mt-2">
                 <br />
+
+                @* Container doble 2 *@
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+
+                            <!-- Col 15 -->
+                            <div class="col-12 col-md-12 col-sm-12 mt-2">
+                                <button type="button" class="btn btn-primary">
+                                    Kardex de Alimento
+                                    (Entradas/Salidas)
+                                </button>
+                            </div>
+
+                            <!-- Col 16 -->
+                            <div class="col-12 col-md-12 col-sm-12 mt-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        <strong>Presentar productos con stock CERO</strong>
+                                    </label>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="col">
+
+                            <!-- Col 15 -->
+                            <div class="col-12 mt-2">
+                                <button type="button" class="btn btn-primary">
+                                    Solo consumo de Alimento
+                                    (Salidas)
+                                </button>
+                                <br />
+                            </div>
+
+                            <!-- Col 16 -->
+                            <div class="col-12 mt-2">
+                                <label for="selectBox text">
+                                    <strong>
+                                        Nota: En este reporte No aplica el excluir los productos con stock CERO, es
+                                        decir, se
+                                        muestran Todos sin excepción
+                                    </strong>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
             </div>
-
-
-            <!-- Col 11 -->
-            <div class="col-12 mt-2">
-                <label for="selectBox text">
-                    <strong>
-                        Nota: En este reporte No aplica el excluir los productos con stock CERO, es decir, se muestran Todos sin excepción
-                    </strong>
-                </label>
-            </div>
-
-
-            <!-- Col 12 -->
-            <div class="col-12 mt-2">
-                <button type="button" class="btn btn-primary">Solo consumo de Alimento (Salidas)</button>
-            </div>
-
-
-            <!-- Col 13 -->
-            <div class="col-12 mt-2">
-            </div>
-
-
         </div>
     </div>
 
+
+
+
 </body>
+
 </html>
 
 
 
 
 <style>
+    /* Estilos para la lista */
+    .radio-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    /* Estilos para cada elemento de la lista */
+    .radio-item {
+        margin-bottom: 10px;
+    }
+
+    /* Estilos para el texto junto a los botones de radio */
+    .radio-text {
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    /* Estilos para los botones de radio */
+    .radio {
+        vertical-align: middle;
+        /* Alinear verticalmente con el texto */
+    }
 
     /* Estilos boton */
     .btn {
@@ -154,5 +254,4 @@
         padding: 10px 20px;
         line-height: 12px;
     }
-
 </style>
