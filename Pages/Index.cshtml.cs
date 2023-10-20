@@ -34,6 +34,18 @@ namespace Reportes.Pages
             }
 
             // successfull data validation
+
+            // connect to database and check the user credentials
+            try 
+            {
+                string connectionString = "Data Source=10.1.0.11;Initial Catalog=Pruebas_chCerdos_Rodrigo19_00hrs;Persist Security Info=True;User ID=sa;Password=B1Admin";
+                using (SqlConnection connection = new(connectionString))
+            }
+            catch (Exception ex) 
+            {
+                errorMessage = ex.Message;
+                return;
+            }
         }
     }
 }
