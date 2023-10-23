@@ -39,7 +39,7 @@ namespace Reportes.Pages
             // connect to database and check the user credentials
             try
             {
-                string connectionString = "Data Source=10.1.0.11;Initial Catalog=Pruebas_chCerdos_Rodrigo19_00hrs;Persist Security Info=False;User ID=sa;Password=B1Admin;";
+                string connectionString = "Data Source=10.1.0.11;Initial Catalog=Pruebas_chCerdos_Rodrigo19_00hrs;Trusted_Connection=false; multisubnetfailover=true; User ID=sa;Password=B1Admin;TrustServerCertificate=true";
                 System.Data.SqlClient.SqlConnection connection = new(connectionString);
                 {
                     connection.Open();
@@ -50,7 +50,7 @@ namespace Reportes.Pages
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         if (reader.Read())
-                        {
+                         {
                             int Id = reader.GetInt32(0);
                             string Usuario = reader.GetString(1);
                             string Nombre = reader.GetString(2);
@@ -88,7 +88,7 @@ namespace Reportes.Pages
                 return;
             }
             //wrong Email or password
-            errorMessage = "El suario y Clave son Incorrectos";
+            errorMessage = "El usuario y Clave son Incorrectos";
         }
     }
 }
