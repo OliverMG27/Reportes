@@ -7,13 +7,14 @@ using Reportes.MyHelpers;
 
 namespace Reportes.Pages
 {
-    [RequireNoAuth]
-    [BindProperties]
+
     public class IndexModel : PageModel
     {
+        [BindProperty]
         [Required(ErrorMessage = "*Se requiere el Usuario")]
         public string Usuario { get; set; } = "";
-
+        [BindProperty]
+        [DataType(DataType.Password)]
         [Required(ErrorMessage = "*Se requiere la Clave")]
         public string Clave { get; set; } = "";
 
