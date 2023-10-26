@@ -11,8 +11,8 @@ namespace Reportes.Pages
     [BindProperties]
     public class IndexModel : PageModel
     {
-        [Required(ErrorMessage = "*Se requiere el correo"), EmailAddress]
-        public string Correo { get; set; } = "";
+        [Required(ErrorMessage = "*Se requiere el Usuario")]
+        public string Usuario { get; set; } = "";
 
         [Required(ErrorMessage = "*Se requiere la Clave")]
         public string Clave { get; set; } = "";
@@ -42,11 +42,11 @@ namespace Reportes.Pages
                 System.Data.SqlClient.SqlConnection connection = new(connectionString);
                 {
                     connection.Open();
-                    string sql = "SELECT * FROM Usuarios WHERE Correo=@Correo AND Clave = @Clave";
+                    string sql = "SELECT * FROM Usuarios WHERE Usuario=@Usuario AND Clave = @Clave";
 
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
-                        command.Parameters.AddWithValue("@Correo", Correo);
+                        command.Parameters.AddWithValue("@Usuario", Usuario);
                         command.Parameters.AddWithValue("@Clave", Clave);
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
@@ -57,10 +57,7 @@ namespace Reportes.Pages
                                 string Correo = reader.GetString(2);
                                 string Tipo = reader.GetString(3);
                                 string Activo = reader.GetString(4);
-                                string hashedPassword = reader.GetString(5);
-
-
-
+         
                                 // the user is authenticated successfully => redirect to the home page
                                 Response.Redirect("/Menu/MenuI");
 
@@ -77,7 +74,7 @@ namespace Reportes.Pages
             }
 
             // Wrong Email or Password
-            errorMessage = "Wrong Email or Password";
+            errorMessage = "El Usuario o Contraseña no son validos";
         }
     }
 }
