@@ -9,11 +9,19 @@
     <link rel="icon" type="image/x-icon" href="https://bioblue.com/wp-content/uploads/2020/08/Nu3-logo@2x_1.png">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    
+
+    <script type="text/javascript">
+        function deshabilitaRetroceso() {
+            window.location.hash = "no-back-button";
+            window.location.hash = "Again-No-back-button" //chrome
+            window.onhashchange = function () { window.location.hash = "no-back-button"; }
+        }
+    </script>
 </head>
 
 
-<body>
+<body onload ="deshabilitaRetroceso();">
+
 
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3">

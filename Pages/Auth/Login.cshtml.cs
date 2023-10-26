@@ -10,23 +10,17 @@ namespace Reportes.Pages.Auth
     [BindProperties]
     public class LoginModel : PageModel
     {
+        [BindProperty]
         [Required(ErrorMessage = "*Se requiere el Usuario")]
         public string Usuario { get; set; } = "";
-
+        [BindProperty]
+        [DataType(DataType.Password)]
         [Required(ErrorMessage = "*Se requiere la Clave")]
         public string Clave { get; set; } = "";
 
         public string errorMessage = "";
         public string successMessage = "";
 
-        public override void OnPageHandlerExecuting(PageHandlerExecutingContext context)
-        {
-            base.OnPageHandlerExecuting(context);
-            if (HttpContext.Session.GetString("role") != null)
-            {
-                context.Result = new RedirectResult("/");
-            }
-        }
 
         public void OnGet()
         {
@@ -45,61 +39,45 @@ namespace Reportes.Pages.Auth
             // connect to database and check the user credentials
             try
             {
-                string connectionString = "";
+                string connectionString = "Data Source=10.1.0.11;TrustServerCertificate=true; Initial Catalog=Pruebas_chCerdos_Rodrigo19_00hrs;Trusted_Connection=false; multisubnetfailover=true; User ID=sa;Password=B1Admin;";
                 System.Data.SqlClient.SqlConnection connection = new(connectionString);
                 {
                     connection.Open();
-                    string sql = "SELECT * FROM users WHERE email=@email";
+                    string sql = "SELECT * FROM Usuarios WHERE Usuario=@Usuario AND Clave = @Clave";
 
-                    using SqlCommand command = new(sql, connection);
-                    command.Parameters.AddWithValue("@email", Usuario);
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    using (SqlCommand command = new SqlCommand(sql, connection))
                     {
-                        if (reader.Read())
+                        command.Parameters.AddWithValue("@Usuario", Usuario);
+                        command.Parameters.AddWithValue("@Clave", Clave);
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            int id = reader.GetInt32(0);
-                            string firstname = reader.GetString(1);
-                            string lastname = reader.GetString(2);
-                            string email = reader.GetString(3);
-                            string phone = reader.GetString(4);
-                            string address = reader.GetString(5);
-                            string hashedPassword = reader.GetString(6);
-                            string role = reader.GetString(7);
-                            string created_at = reader.GetDateTime(8).ToString("MM/dd/yyyy");
-
-                            // verify the password
-                            var passwordHasher = new PasswordHasher<IdentityUser>();
-                            var result = passwordHasher.VerifyHashedPassword(new IdentityUser(),
-                                hashedPassword, Clave);
-
-                            if (result == PasswordVerificationResult.Success
-                                || result == PasswordVerificationResult.SuccessRehashNeeded)
+                            if (reader.Read())
                             {
-                                // successful password verification => initialize the session
-                                HttpContext.Session.SetInt32("id", id);
-                                HttpContext.Session.SetString("firstname", firstname);
-                                HttpContext.Session.SetString("lastname", lastname);
-                                HttpContext.Session.SetString("email", email);
-                                HttpContext.Session.SetString("phone", phone);
-                                HttpContext.Session.SetString("address", address);
-                                HttpContext.Session.SetString("role", role);
-                                HttpContext.Session.SetString("created_at", created_at);
+                                int Id = reader.GetInt32(0);
+                                string Nombre = reader.GetString(1);
+                                string Correo = reader.GetString(2);
+                                string Tipo = reader.GetString(3);
+                                string Activo = reader.GetString(4);
 
                                 // the user is authenticated successfully => redirect to the home page
-                                Response.Redirect("/Menu/MenuI");
+                                Response.Redirect("/");
+
+
                             }
                         }
                     }
                 }
             }
+
             catch (Exception ex)
             {
                 errorMessage = ex.Message;
                 return;
             }
 
-            //wrong Email or password
-            errorMessage = "El suario y Clave son Incorrectos";
+            // Wrong Email or Password
+            errorMessage = "El Usuario o Contraseña no son validos";
         }
     }
 }
+

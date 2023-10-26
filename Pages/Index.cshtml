@@ -21,6 +21,14 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         }
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+            document.addEventListener("keydown", function (event) {
+                if (event.keyCode === 8 || event.keyCode === 37) {
+                    event.preventDefault();
+                }
+            });
+        </script>
 
         <form method="post">
             <div class="mb-3">
@@ -37,7 +45,7 @@
 
             <div class="row mb-3">
                 <div class="col d-grid">
-                    <button type="submit" class="btn btn-primary w-100" href="/Menu/MenuI">Inicio Sesion</button>
+                    <button type="submit" class="btn btn-primary w-100" href="/">Inicio Sesion</button>
                 </div>
             </div>
         </form>

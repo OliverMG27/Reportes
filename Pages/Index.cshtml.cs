@@ -10,6 +10,11 @@ namespace Reportes.Pages
 
     public class IndexModel : PageModel
     {
+        public IActionResult Index()
+        {
+            return Page();
+        }
+
         [BindProperty]
         [Required(ErrorMessage = "*Se requiere el Usuario")]
         public string Usuario { get; set; } = "";
@@ -61,6 +66,7 @@ namespace Reportes.Pages
          
                                 // the user is authenticated successfully => redirect to the home page
                                 Response.Redirect("/Menu/MenuI");
+                                
 
                             }
                         }
