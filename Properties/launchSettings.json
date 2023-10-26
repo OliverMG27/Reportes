@@ -24,6 +24,16 @@
         "ASPNETCORE_URLS": "http://+:80"
       },
       "publishAllPorts": true
+    },
+    "WSL": {
+      "commandName": "WSL2",
+      "launchBrowser": true,
+      "launchUrl": "http://localhost:5224",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "http://localhost:5224"
+      },
+      "distributionName": ""
     }
   },
   "iisSettings": {
