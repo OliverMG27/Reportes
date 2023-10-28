@@ -9,6 +9,9 @@
     <link rel="icon" type="image/x-icon" href="https://bioblue.com/wp-content/uploads/2020/08/Nu3-logo@2x_1.png">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script type="text/javascript">
         function deshabilitaRetroceso() {
@@ -17,19 +20,47 @@
             window.onhashchange = function () { window.location.hash = "no-back-button"; }
         }
     </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Obtén la URL de la página actual
+            var currentPageURL = window.location.pathname;
+
+            // Verifica si la URL corresponde a la página de inicio (Index)
+            if (currentPageURL === "/Index") {
+                // Si es la página de inicio, deshabilita el botón desplegable
+                $('#dropdown').prop('disabled', true);
+            } else {
+                // Si es cualquier otra página, habilita el botón desplegable
+                $('#dropdown').prop('disabled', false);
+            }
+        });
+    </script>
 </head>
 
 
 <body onload ="deshabilitaRetroceso();">
 
-
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-page="/Index"><img src="~/images/Nu3-logo@2x_1 (1).png" class="w-25" /></a>
+
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+                        Dropdown
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Link 1</a>
+                        <a class="dropdown-item" href="#">Link 2</a>
+                        <a class="dropdown-item" href="#">Link 3</a>
+                    </div>
+                </div>
             </div>
         </nav>
     </header>
+
+  
 
     <div class="container">
         <main role="main" class="pb-3">
