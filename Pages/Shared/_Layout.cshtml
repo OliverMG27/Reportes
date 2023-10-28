@@ -9,7 +9,9 @@
     <link rel="icon" type="image/x-icon" href="https://bioblue.com/wp-content/uploads/2020/08/Nu3-logo@2x_1.png">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script type="text/javascript">
         function deshabilitaRetroceso() {
             window.location.hash = "no-back-button";
@@ -22,13 +24,15 @@
 
 <body onload ="deshabilitaRetroceso();">
 
-
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index"><img src="~/images/Nu3-logo@2x_1 (1).png" class="w-25" /></a>
+                <a class="navbar-brand" asp-area="" asp-page="/"><img src="~/images/Nu3-logo@2x_1 (1).png" class="w-25" /></a>
             </div>
+            
+
         </nav>
+
     </header>
 
     <div class="container">
@@ -53,5 +57,14 @@
 <style>
     .navbar {
         background-color: #92002d;
+    }
+    .btn1{
+        background-color:#92002d;
+        color: black;
+        text-align: center;
+        padding: 10px 20px;
+        line-height: 20px;
+        margin-top: 10px;
+        border-radius: 10px;
     }
 </style>
