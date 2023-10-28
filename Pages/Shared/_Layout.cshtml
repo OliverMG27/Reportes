@@ -21,21 +21,6 @@
         }
     </script>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            // Obtén la URL de la página actual
-            var currentPageURL = window.location.pathname;
-
-            // Verifica si la URL corresponde a la página de inicio (Index)
-            if (currentPageURL === "/Index") {
-                // Si es la página de inicio, deshabilita el botón desplegable
-                $('#dropdown').prop('disabled', true);
-            } else {
-                // Si es cualquier otra página, habilita el botón desplegable
-                $('#dropdown').prop('disabled', false);
-            }
-        });
-    </script>
 </head>
 
 
@@ -44,7 +29,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/"><img src="~/images/Nu3-logo@2x_1 (1).png" class="w-25" /></a>
+                <a class="navbar-brand"><img src="~/images/Nu3-logo@2x_1 (1).png" class="w-25" /></a>
 
             </div>
             
