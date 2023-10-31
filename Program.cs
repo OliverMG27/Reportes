@@ -28,6 +28,7 @@ app.UseAuthorization();
 app.UseSession();
 
 app.MapRazorPages();
+
 app.MapDefaultControllerRoute();
 
 app.Run();
