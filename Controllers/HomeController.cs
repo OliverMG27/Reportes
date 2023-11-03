@@ -25,21 +25,8 @@ namespace Reportes.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
 
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
-        public FileResult exportar(string granja, string sitios, string CentroDeCostos)
+        public FileResult exportar(string granja, string fechainicio, string fechafin)
         {
 
             DataTable dt = new DataTable();
@@ -47,7 +34,7 @@ namespace Reportes.Controllers
             {
                 StringBuilder consulta = new StringBuilder();
                 consulta.AppendLine("SET DATEFORMAT dmy;");
-                consulta.AppendLine("select * from Granjas ");
+                consulta.AppendLine("select * from [dbo].[Granjas] where idEmpresa = iif(@empresa =0,employeeI,@employee) and convert(date,OrderDate) between @fechainicio and @fechafin");
 
 
                 SqlCommand cmd = new SqlCommand(consulta.ToString(), cn);
