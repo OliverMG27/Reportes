@@ -10,7 +10,7 @@ namespace Reportes.Pages.RMortalidades
 {
     public class RMortalidadesIModel : PageModel
     {
-             public List<Empresa> Empresas { get; set; } // Crear una propiedad para almacenar las empresas
+        public List<Empresa> Empresas { get; set; } // Crear una propiedad para almacenar las empresas
 
         public void OnGet()
         {
@@ -36,6 +36,10 @@ namespace Reportes.Pages.RMortalidades
                 }
             }
         }
+
+
+      
+
     }
 
     public class Empresa
@@ -44,3 +48,4 @@ namespace Reportes.Pages.RMortalidades
         public string RazonSocial { get; set; }
     }
 }
+ 

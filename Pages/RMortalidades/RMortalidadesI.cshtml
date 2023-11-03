@@ -85,15 +85,15 @@
             </div>
 
             @* Col 3 *@
-           <div class="col-md-8 col-sm-12 mt-2">
-    <select class="form-select" aria-label="Default select example">
-        <option selected>- - Selección - -</option>
-        @foreach (var empresa in Model.Empresas)
-        {
-            <option value="@($"Op{empresa.Id}-Empresa")">@empresa.RazonSocial</option>
-        }
-    </select>
-</div>
+            <div class="col-md-8 col-sm-12 mt-2">
+                <select class="form-select" aria-label="Default select example" id="CmbEmpresa_Mortalidad_ReportesCerdos" onchange="loadGranjas()">
+                    <option selected>- - Selección - -</option>
+                    @foreach (var empresa in Model.Empresas)
+                    {
+                        <option value="@empresa.Id">@empresa.RazonSocial</option>
+                    }
+                </select>
+            </div>
 
 
             <!-- Col 4 -->
@@ -103,11 +103,9 @@
 
             @* Col 4 *@
             <div class="col-md-8 col-sm-12 mt-2">
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select" aria-label="Default select example" id="CmbGranja_Mortalidad_ReportesCerdos">
                     <option selected>- - Selección - -</option>
-                    <option value="Op1-Granja">Op 1</option>
-                    <option value="Op2-Granja">Op 2</option>
-                    <!-- Add more options here -->
+                   
                 </select>
             </div>
 
@@ -198,6 +196,18 @@
 
 </body>
 </html>
+
+
+
+
+@section scripts{
+    <script>
+
+  
+
+    </script>
+
+}
 
 
 
