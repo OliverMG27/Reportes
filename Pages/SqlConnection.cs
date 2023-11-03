@@ -1,4 +1,6 @@
-﻿namespace Reportes.Pages
+﻿using System.Data;
+
+namespace Reportes.Pages
 {
     internal class SqlConnection
     {
@@ -14,6 +16,8 @@
         {
             this.connectionString = connectionString;
         }
+
+        public ConnectionState State { get; internal set; }
 
         internal void Open()
         {
