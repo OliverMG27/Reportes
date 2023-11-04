@@ -86,7 +86,7 @@
 
             @* Col 3 *@
             <div class="col-md-8 col-sm-12 mt-2">
-                <select class="form-select" aria-label="Default select example" id="idEmpresa">
+                <select class="form-select" aria-label="Default select example" id="SelectList1">
                     <option selected>- - Selección - -</option>
                     @foreach (var empresa in Model.Empresas)
                     {
@@ -112,8 +112,7 @@
                 </select>
             </div>
 
-
-
+           
             <!-- Col 5 -->
             <div class="col-md-4 col-sm-12 mt-2">
                 <label for="selectBox text"><strong>Fechas de entrada:</strong></label>
@@ -205,14 +204,8 @@
 
 
 @section scripts{
-    <script>
 
-        $(document).ready(function () {
-            $('#selectEmpresa').change(function () {
-                var selectedEmpresaId = $(this).val();
-                // Aquí debes enviar selectedEmpresaId al controlador
-            });
-        });
+    <script>
 
     </script>
 
