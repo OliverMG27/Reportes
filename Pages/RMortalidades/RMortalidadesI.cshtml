@@ -86,11 +86,11 @@
 
             @* Col 3 *@
             <div class="col-md-8 col-sm-12 mt-2">
-                <select class="form-select" aria-label="Default select example" id="CmbEmpresa_Mortalidad_ReportesCerdos" onchange="loadGranjas()">
+                <select class="form-select" aria-label="Default select example" id="idEmpresa">
                     <option selected>- - Selección - -</option>
                     @foreach (var empresa in Model.Empresas)
                     {
-                        <option value="@empresa.Id">@empresa.RazonSocial</option>
+                        <option value="@empresa.id">@empresa.RazonSocial</option>
                     }
                 </select>
             </div>
@@ -103,11 +103,15 @@
 
             @* Col 4 *@
             <div class="col-md-8 col-sm-12 mt-2">
-                <select class="form-select" aria-label="Default select example" id="CmbGranja_Mortalidad_ReportesCerdos">
+                <select class="form-select" aria-label="Default select example" id="selectedGranja" name="empresaId">
                     <option selected>- - Selección - -</option>
-                   
+                    @foreach (var granja in Model.Granjas)
+                    {
+                        <option value="@granja.idEmpresa">@granja.granja</option>
+                    }
                 </select>
             </div>
+
 
 
             <!-- Col 5 -->
@@ -203,7 +207,12 @@
 @section scripts{
     <script>
 
-  
+        $(document).ready(function () {
+            $('#selectEmpresa').change(function () {
+                var selectedEmpresaId = $(this).val();
+                // Aquí debes enviar selectedEmpresaId al controlador
+            });
+        });
 
     </script>
 
