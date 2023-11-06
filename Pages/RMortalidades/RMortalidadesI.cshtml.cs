@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data.SqlClient;
 using System.IO;
 using DocumentFormat.OpenXml.Office2010.Excel;
+using Microsoft.Ajax.Utilities;
 
 namespace Reportes.Pages.RMortalidades
 {
@@ -12,6 +13,9 @@ namespace Reportes.Pages.RMortalidades
     {
         public List<Empresa> Empresas { get; set; }
         public List<Granja> Granjas { get; set; }
+         public int idEmpresa { get; set; }
+
+    
 
         public void OnGet()
         {
@@ -42,7 +46,7 @@ namespace Reportes.Pages.RMortalidades
                 string sqlQueryGranjas = "SELECT idEmpresa, granja FROM Granjas WHERE idEmpresa = @idEmpresa ORDER BY granja;";
                 using (SqlCommand command = new SqlCommand(sqlQueryGranjas, connection))
                 {
-                    command.Parameters.AddWithValue("@idEmpresa", 10); // Reemplaza 'idEmpresa' con el valor adecuado.
+                    command.Parameters.AddWithValue("@idEmpresa", 1); // Reemplaza 'idEmpresa' con el valor adecuado.
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {

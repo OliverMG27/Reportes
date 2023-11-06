@@ -86,7 +86,7 @@
 
             @* Col 3 *@
             <div class="col-md-8 col-sm-12 mt-2">
-                <select class="form-select" aria-label="Default select example" id="SelectList1">
+                <select class="form-select" aria-label="Default select example" id="cmbEmpresas">
                     <option selected>- - Selección - -</option>
                     @foreach (var empresa in Model.Empresas)
                     {
@@ -103,7 +103,7 @@
 
             @* Col 4 *@
             <div class="col-md-8 col-sm-12 mt-2">
-                <select class="form-select" aria-label="Default select example" id="selectedGranja" name="empresaId">
+                <select class="form-select" name="cmbEmpresas" aria-label="Default select example">
                     <option selected>- - Selección - -</option>
                     @foreach (var granja in Model.Granjas)
                     {
