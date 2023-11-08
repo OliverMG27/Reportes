@@ -42,7 +42,7 @@ namespace Reportes.Pages.RMortalidades
                     }
                 }
 
-
+                int idEmpresaSeleccionada = Convert.ToInt32(Request.Form["idEmpresa"]);
                 string sqlQueryGranjas = "SELECT idEmpresa, granja FROM Granjas WHERE idEmpresa = @idEmpresa ORDER BY granja;";
                 using (SqlCommand command = new SqlCommand(sqlQueryGranjas, connection))
                 {
