@@ -79,38 +79,47 @@
             </div>
 
 
+            
+
+
             <!-- Col 3 -->
             <div class="col-md-4 col-sm-12 mt-2">
                 <label for="selectBox text"><strong>Empresa:</strong></label>
             </div>
 
+     
             @* Col 3 *@
             <div class="col-md-8 col-sm-12 mt-2">
-                <select class="form-select" aria-label="Default select example" id="cmbEmpresas">
-                    <option selected>- - Selección - -</option>
+ 
+                <select id="CmbEmpresa_Mortalidad_ReportesCerdos" asp-for="SelectedEmpresaId" class="form-select" runet="server">
+                    <option class="text-center">---------------------------------------- Selección ----------------------------------------</option>
                     @foreach (var empresa in Model.Empresas)
                     {
                         <option value="@empresa.id">@empresa.RazonSocial</option>
                     }
                 </select>
+   
             </div>
-
+            
 
             <!-- Col 4 -->
             <div class="col-md-4 col-sm-12 mt-2">
                 <label for="selectBox text"><strong>Granja:</strong></label>
             </div>
 
+            
+
             @* Col 4 *@
             <div class="col-md-8 col-sm-12 mt-2">
-                <select class="form-select" name="cmbEmpresas" aria-label="Default select example">
-                    <option selected>- - Selección - -</option>
-                    @foreach (var granja in Model.Granjas)
-                    {
-                        <option value="@granja.idEmpresa">@granja.granja</option>
-                    }
+                <select id="CmbGranja_Mortalidad_ReportesCerdos" class="form-select" runat="server">
+                    <option class="text-center">---------------------------------------- Selección ----------------------------------------</option>
+                    <!-- Opciones se llenarán dinámicamente con JavaScript -->
                 </select>
             </div>
+
+
+
+   
 
            
             <!-- Col 5 -->
@@ -205,8 +214,8 @@
 
 @section scripts{
 
-    <script>
-
+    <script type="text/javascript">
+ 
     </script>
 
 }
@@ -236,10 +245,9 @@
         position: relative;
         border-radius: 10px;
         margin-top: 18px;
-        
-
-
     }
+
+        
 
     .btnExcell{
         border-radius: 10px;

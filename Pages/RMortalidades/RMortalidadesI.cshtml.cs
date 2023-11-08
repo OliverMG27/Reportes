@@ -13,9 +13,8 @@ namespace Reportes.Pages.RMortalidades
     {
         public List<Empresa> Empresas { get; set; }
         public List<Granja> Granjas { get; set; }
-         public int idEmpresa { get; set; }
+        public int SelectedEmpresaId { get; set; }
 
-    
 
         public void OnGet()
         {
@@ -23,6 +22,7 @@ namespace Reportes.Pages.RMortalidades
             Granjas = new List<Granja>();
 
             string connectionString = "Data Source=10.1.0.11;TrustServerCertificate=true; Initial Catalog=Pruebas_chCerdos_Rodrigo19_00hrs;Trusted_Connection=false; multisubnetfailover=true; User ID=sa;Password=B1Admin;";
+
             System.Data.SqlClient.SqlConnection connection = new(connectionString);
             {
                 connection.Open();
@@ -42,34 +42,27 @@ namespace Reportes.Pages.RMortalidades
                     }
                 }
 
-                int idEmpresaSeleccionada = Convert.ToInt32(Request.Form["idEmpresa"]);
-                string sqlQueryGranjas = "SELECT idEmpresa, granja FROM Granjas WHERE idEmpresa = @idEmpresa ORDER BY granja;";
-                using (SqlCommand command = new SqlCommand(sqlQueryGranjas, connection))
+                if (SelectedEmpresaId > 0)
                 {
-                    command.Parameters.AddWithValue("@idEmpresa", 1); // Reemplaza 'idEmpresa' con el valor adecuado.
-
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    string sqlQueryGranjas = "SELECT idEmpresa, granja FROM Granjas WHERE idEmpresa = @idEmpresa ORDER BY granja";
+                    using (SqlCommand command = new SqlCommand(sqlQueryGranjas, connection))
                     {
-                        while (reader.Read())
+                        command.Parameters.AddWithValue("@idEmpresa", SelectedEmpresaId);
+
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            Granjas.Add(new Granja
+                            while (reader.Read())
                             {
-                                idEmpresa = reader.GetInt32(reader.GetOrdinal("idEmpresa")),
-                                granja = reader.GetString(reader.GetOrdinal("granja"))
-                            });
+                                Granjas.Add(new Granja
+                                {
+                                    idEmpresa = reader.GetInt32(reader.GetOrdinal("idEmpresa")),
+                                    granja = reader.GetString(reader.GetOrdinal("granja"))
+                                });
+                            }
                         }
                     }
                 }
-
-
-
-
             }
-
-
-
-
-
         }
     }
 
