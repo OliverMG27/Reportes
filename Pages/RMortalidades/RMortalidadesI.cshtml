@@ -3,9 +3,7 @@
 @{
     ViewData["Title"] = "Mortalidades";
 }
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
 <!DOCTYPE html>
@@ -15,6 +13,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </head>
 <body>
@@ -92,7 +92,7 @@
             <div class="col-md-8 col-sm-12 mt-2">
  
                 <select id="CmbEmpresa_Mortalidad_ReportesCerdos" asp-for="SelectedEmpresaId" class="form-select" runet="server">
-                    <option class="text-center">---------------------------------------- Selección ----------------------------------------</option>
+                    <option class="text-center">---------- Selección ---------</option>
                     @foreach (var empresa in Model.Empresas)
                     {
                         <option value="@empresa.id">@empresa.RazonSocial</option>
@@ -112,8 +112,8 @@
             @* Col 4 *@
             <div class="col-md-8 col-sm-12 mt-2">
                 <select id="CmbGranja_Mortalidad_ReportesCerdos" class="form-select" runat="server">
-                    <option class="text-center">---------------------------------------- Selección ----------------------------------------</option>
-                    <!-- Opciones se llenarán dinámicamente con JavaScript -->
+                    <option class="text-center">---------- Selección ---------</option>
+                    <!---- Opciones se llenarán dinámicamente con JavaScript ---->
                 </select>
             </div>
 
