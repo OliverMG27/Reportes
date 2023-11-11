@@ -6,6 +6,8 @@ using System.Data.SqlClient;
 using System.IO;
 using DocumentFormat.OpenXml.Office2010.Excel;
 using Microsoft.Ajax.Utilities;
+using DocumentFormat.OpenXml.EMMA;
+using System.Reflection.Metadata;
 
 namespace Reportes.Pages.RMortalidades
 {
@@ -13,7 +15,10 @@ namespace Reportes.Pages.RMortalidades
     {
         public List<Empresa> Empresas { get; set; }
         public List<Granja> Granjas { get; set; }
-        public int SelectedEmpresaId { get; set; }
+        public string SelectedValue { get; set; }
+
+
+
 
 
         public void OnGet()
@@ -42,29 +47,48 @@ namespace Reportes.Pages.RMortalidades
                     }
                 }
 
-                if (SelectedEmpresaId > 0)
-                {
-                    string sqlQueryGranjas = "SELECT idEmpresa, granja FROM Granjas WHERE idEmpresa = @idEmpresa ORDER BY granja";
-                    using (SqlCommand command = new SqlCommand(sqlQueryGranjas, connection))
-                    {
-                        command.Parameters.AddWithValue("@idEmpresa", SelectedEmpresaId);
 
-                        using (SqlDataReader reader = command.ExecuteReader())
+             
+
+            }
+        }
+
+        public void OnPost()
+        {
+            Empresas = new List<Empresa>();
+            Granjas = new List<Granja>();
+
+            string connectionString = "Data Source=10.1.0.11;TrustServerCertificate=true; Initial Catalog=Pruebas_chCerdos_Rodrigo19_00hrs;Trusted_Connection=false; multisubnetfailover=true; User ID=sa;Password=B1Admin;";
+
+            System.Data.SqlClient.SqlConnection connection = new(connectionString);
+            {
+                connection.Open();
+
+                string sqlQueryGranjas = "SELECT granja FROM Granjas WHERE idEmpresa = @idEmpresa AND Activa = 'S' ORDER BY granja";
+                using (SqlCommand command = new SqlCommand(sqlQueryGranjas, connection))
+                {
+                    command.Parameters.AddWithValue("@idEmpresa", SelectedValue);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
                         {
-                            while (reader.Read())
+                            Granjas.Add(new Granja
                             {
-                                Granjas.Add(new Granja
-                                {
-                                    idEmpresa = reader.GetInt32(reader.GetOrdinal("idEmpresa")),
-                                    granja = reader.GetString(reader.GetOrdinal("granja"))
-                                });
-                            }
+                                // Assuming idEmpresa is an int, if it's a different type, adjust accordingly
+                                idEmpresa = reader.GetInt32(reader.GetOrdinal("idEmpresa")),
+                                granja = reader.GetString(reader.GetOrdinal("granja"))
+                            });
                         }
                     }
                 }
             }
+
         }
+
     }
+
+
 
     public class Empresa
     {
