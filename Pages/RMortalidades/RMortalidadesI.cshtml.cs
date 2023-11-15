@@ -1,107 +1,97 @@
-using System;
-using System.Collections.Generic;
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data.SqlClient;
-using System.IO;
-using DocumentFormat.OpenXml.Office2010.Excel;
-using Microsoft.Ajax.Utilities;
-using DocumentFormat.OpenXml.EMMA;
-using System.Reflection.Metadata;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Collections.Generic;
+using System.Web.Mvc;
+using SelectListItem = Microsoft.AspNetCore.Mvc.Rendering.SelectListItem;
+
 
 namespace Reportes.Pages.RMortalidades
 {
     public class RMortalidadesIModel : PageModel
     {
-        public List<Empresa> Empresas { get; set; }
-        public List<Granja> Granjas { get; set; }
-        public string SelectedValue { get; set; }
 
+        [BindProperty]
+        public int SelectedEmpresaId { get; set; }
 
+        [BindProperty]
+        public int SelectedGranjaId { get; set; }
 
-
+        public List<SelectListItem> Empresas { get; set; }
+        public List<SelectListItem> Granjas { get; set; }
 
         public void OnGet()
         {
-            Empresas = new List<Empresa>();
-            Granjas = new List<Granja>();
-
-            string connectionString = "Data Source=10.1.0.11;TrustServerCertificate=true; Initial Catalog=Pruebas_chCerdos_Rodrigo19_00hrs;Trusted_Connection=false; multisubnetfailover=true; User ID=sa;Password=B1Admin;";
-
-            System.Data.SqlClient.SqlConnection connection = new(connectionString);
-            {
-                connection.Open();
-                string sqlQuery = "SELECT * FROM Empresas ORDER BY razonSocial";
-                using (SqlCommand command = new SqlCommand(sqlQuery, connection))
-                {
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            Empresas.Add(new Empresa
-                            {
-                                id = reader.GetInt32(reader.GetOrdinal("id")),
-                                RazonSocial = reader.GetString(reader.GetOrdinal("razonSocial"))
-                            });
-                        }
-                    }
-                }
-
-
-             
-
-            }
+            CargarEmpresas();
+            Granjas = new List<SelectListItem>();
         }
 
         public void OnPost()
         {
-            Empresas = new List<Empresa>();
-            Granjas = new List<Granja>();
+            CargarEmpresas();
+            CargarGranjas(SelectedEmpresaId);
+        }
 
+        private void CargarEmpresas()
+        {
+            // Utiliza tu cadena de conexión y consulta SQL para obtener las empresas
             string connectionString = "Data Source=10.1.0.11;TrustServerCertificate=true; Initial Catalog=Pruebas_chCerdos_Rodrigo19_00hrs;Trusted_Connection=false; multisubnetfailover=true; User ID=sa;Password=B1Admin;";
-
             System.Data.SqlClient.SqlConnection connection = new(connectionString);
             {
                 connection.Open();
-
-                string sqlQueryGranjas = "SELECT granja FROM Granjas WHERE idEmpresa = @idEmpresa AND Activa = 'S' ORDER BY granja";
-                using (SqlCommand command = new SqlCommand(sqlQueryGranjas, connection))
+                string sqlQueryEmpresa = "SELECT * FROM Empresas ORDER BY razonSocial";
+                using (var command = new SqlCommand(sqlQueryEmpresa, connection))
+                using (var reader = command.ExecuteReader())
                 {
-                    command.Parameters.AddWithValue("@idEmpresa", SelectedValue);
+                    Empresas = new List<SelectListItem>
+                {
+                    new  SelectListItem { Value = "", Text = "Selecciona una empresa" }
+                };
 
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    while (reader.Read())
                     {
-                        while (reader.Read())
+                        Empresas.Add(new SelectListItem
                         {
-                            Granjas.Add(new Granja
-                            {
-                                // Assuming idEmpresa is an int, if it's a different type, adjust accordingly
-                                idEmpresa = reader.GetInt32(reader.GetOrdinal("idEmpresa")),
-                                granja = reader.GetString(reader.GetOrdinal("granja"))
-                            });
-                        }
+                            Value = reader["id"].ToString(),
+                            Text = reader["razonSocial"].ToString()
+                        });
                     }
                 }
             }
-
         }
 
+        private void CargarGranjas(int empresaId)
+        {
+            // Utiliza tu cadena de conexión y consulta SQL para obtener las granjas de la empresa seleccionada
+            string connectionString = "Data Source=10.1.0.11;TrustServerCertificate=true; Initial Catalog=Pruebas_chCerdos_Rodrigo19_00hrs;Trusted_Connection=false; multisubnetfailover=true; User ID=sa;Password=B1Admin;";
+            System.Data.SqlClient.SqlConnection connection = new(connectionString);
+            {
+                connection.Open();
+                string sqlQueryGranjas = $"SELECT idEmpresa,granja FROM Granjas WHERE IdEmpresa = {empresaId} AND Activa = 'S' ORDER BY granja";
+
+                using (var command = new SqlCommand(sqlQueryGranjas, connection))
+                using (var reader = command.ExecuteReader())
+                {
+                    Granjas = new List<SelectListItem>
+                {
+                    new SelectListItem { Value = "", Text = "Selecciona una granja" }
+                };
+
+                    while (reader.Read())
+                    {
+                        Granjas.Add(new SelectListItem  
+                        {
+                            Value = reader["idEmpresa"].ToString(),
+                            Text = reader["granja"].ToString()
+                        });
+                    }
+                }
+            }
+        }
     }
-
-
-
-    public class Empresa
-    {
-        public int id { get; set; }
-        public string RazonSocial { get; set; }
-    }
-
-    public class Granja
-    {
-        public int idEmpresa { get; set; }
-        public string granja { get; set; }
-    }
-
 }
+
 
 /*comentario de prueba*/

@@ -1,0 +1,9 @@
+﻿@using Reportes.Models;
+<!-- Pages/Shared/_GranjasPartial.cshtml -->
+@model List<Granja>
+
+<option value="" class="text-center">-----Selecciona----</option>
+@foreach (var granja in Model)
+{
+    <option value="@granja.idEmpresa">@granja.granja</option>
+}

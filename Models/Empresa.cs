@@ -3,6 +3,6 @@
     public class Empresa
     {
         public int id { get; set; }
-        public string? RazonSocial { get; set; }
+        public string? razonSocial { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Reportes.Controllers;
 
 namespace Reportes
 {
@@ -17,6 +18,8 @@ namespace Reportes
         public void ConfigureServices(IServiceCollection services)
         {
             // Configura los servicios de la aplicación, como la inyección de dependencias.
+            services.AddTransient<IRMortalidades, RMortalidades>();
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

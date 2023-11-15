@@ -45,7 +45,8 @@ namespace Reportes.Pages
             try
             {
                 string connectionString = "Data Source=10.1.0.11;TrustServerCertificate=true; Initial Catalog=Pruebas_chCerdos_Rodrigo19_00hrs;Trusted_Connection=false; multisubnetfailover=true; User ID=sa;Password=B1Admin;";
-        
+
+
                 System.Data.SqlClient.SqlConnection connection = new(connectionString);
                 {
                     connection.Open();
