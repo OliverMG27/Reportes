@@ -83,19 +83,25 @@
 
 
             <form method="post">
-                <!-- Col 3 -->
-                <div class="col-md-4 col-sm-12 mt-2">
+            
+             <div class="row">
+
+                 <!-- Col 3 -->
+                <div class="col-md-4 col-sm-8 mt-2">
                     <label for="empresas"><strong>Empresa:</strong></label>
                 </div>
                 @* Col 3 *@
-                <div class="col-md-8 col-sm-12 mt-2">
+                <div class="col-md-4 col-sm-2 mt-2">
                     <select id="empresas" asp-for="SelectedEmpresaId" asp-items="Model.Empresas">
-                        <option value="" class="text-center">---------- Selección ---------</option>
                     </select>
                 </div>
 
+                 <div class="col-md-4 col-sm-2 mt-2">
+                    <button type="submit" class="btn-Granja">Cargar Granjas</button>
+                </div>
+ 
+                </div>              
 
-                <button type="submit">Cargar Granjas</button>
             </form>
 
             @if (Model.Granjas.Count > 0)
@@ -107,7 +113,6 @@
                 @* Col 4 *@
                 <div class="col-md-8 col-sm-12 mt-2">
                     <select id="granjas" asp-for="SelectedGranjaId" asp-items="Model.Granjas">
-                        <option value="" class="text-center">------- Seleccion ------------</option>
                     </select>
                 </div>
 
@@ -238,6 +243,9 @@
         margin-top: 18px;
     }
 
+    .btn-Granja{
+        border-radius: 10px;
+    }
         
 
     .btnExcell{
