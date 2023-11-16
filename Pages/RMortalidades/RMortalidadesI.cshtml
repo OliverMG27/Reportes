@@ -126,7 +126,7 @@
 
             @* Col 5 *@
             <div class="col-md-8 col-sm-12 mt-2">
-                <input type="date" class="custom-date-input" />
+                <input id="FechaEntrada" type="date" class="custom-date-input" />
             </div>
 
 
@@ -135,7 +135,7 @@
                 <label for="selectBox text"><strong>Fechas de salida:</strong></label>
             </div>
             <div class="col-md-8 col-sm-12 mt-2">
-                <input type="date" class="custom-date-input" />
+                <input id="FechaSalida" type="date" class="custom-date-input" />
             </div>
 
 
@@ -205,6 +205,35 @@
  
 @section scripts {
     <script>
+
+        //Id Empresa
+            var selectElement = document.getElementById('empresas');
+            selectElement.addEventListener('change', function () {
+                var selectedValue = selectElement.value;
+                console.log('Empresa seleccionada:', selectedValue);
+            });
+
+
+        //Id Granja
+            var selectElement2 = document.getElementById('granjas');
+            selectElement.addEventListener('change', function () {
+                var selectedValue2 = selectElement.value;
+                console.log('idEmpresa =', selectedValue2);
+            });
+
+
+        //Fecha entrada
+            var inputFecha = document.getElementById('FechaEntrada');
+            inputFecha.addEventListener('change', function () {
+                console.log('Fecha Entrada:', inputFecha.value);
+            });
+
+
+        //Fecha Salida
+            var inputFecha2 = document.getElementById('FechaSalida');
+            inputFecha2.addEventListener('change', function () {
+                console.log('Fecha Salida:', inputFecha2.value);
+            });
 
     </script>
 }
