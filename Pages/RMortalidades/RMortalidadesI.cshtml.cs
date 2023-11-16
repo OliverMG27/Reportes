@@ -47,7 +47,7 @@ namespace Reportes.Pages.RMortalidades
                 {
                     Empresas = new List<SelectListItem>
                 {
-                    new  SelectListItem { Value = "", Text = "Selecciona una empresa" }
+                    new  SelectListItem { Value = "", Text = " - - - - Selecciona una empresa - - - - " }
                 };
 
                     while (reader.Read())
@@ -76,7 +76,7 @@ namespace Reportes.Pages.RMortalidades
                 {
                     Granjas = new List<SelectListItem>
                 {
-                    new SelectListItem { Value = "", Text = "Selecciona una granja" }
+                    new SelectListItem { Value = "", Text = " - - - - Selecciona una granja - - - - " }
                 };
 
                     while (reader.Read())
