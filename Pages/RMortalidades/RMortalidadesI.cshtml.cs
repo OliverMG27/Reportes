@@ -84,7 +84,7 @@ namespace Reportes.Pages.RMortalidades
                         Granjas.Add(new SelectListItem  
                         {
                             Value = reader["idEmpresa"].ToString(),
-                            Text = reader["granja"].ToString()
+                            Text = reader["granja"].ToString().ToUpper()
                         });
                     }
                 }
