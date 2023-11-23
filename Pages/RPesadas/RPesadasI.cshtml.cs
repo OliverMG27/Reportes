@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 using SelectListItem = Microsoft.AspNetCore.Mvc.Rendering.SelectListItem;
 using Reportes.Models;
+using Reportes.Controllers;
 
 namespace Reportes.Pages.RPesadas
 {
