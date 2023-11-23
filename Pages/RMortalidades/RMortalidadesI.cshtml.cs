@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using SelectListItem = Microsoft.AspNetCore.Mvc.Rendering.SelectListItem;
+using Reportes.Models;
 
 
 namespace Reportes.Pages.RMortalidades
@@ -32,6 +33,7 @@ namespace Reportes.Pages.RMortalidades
         {
             CargarEmpresas();
             CargarGranjas(SelectedEmpresaId);
+
         }
 
         private void CargarEmpresas()
@@ -81,7 +83,7 @@ namespace Reportes.Pages.RMortalidades
 
                     while (reader.Read())
                     {
-                        Granjas.Add(new SelectListItem  
+                        Granjas.Add(new SelectListItem
                         {
                             Value = reader["idEmpresa"].ToString(),
                             Text = reader["granja"].ToString().ToUpper()
@@ -91,13 +93,51 @@ namespace Reportes.Pages.RMortalidades
             }
         }
 
-        
+        private void MortalidadSemana(int IdEmpresa, DateTime FechaHasta, string Granja)
+        {
+            string connectionString = "Data Source=10.1.0.11;TrustServerCertificate=true; Initial Catalog=Pruebas_chCerdos_Rodrigo19_00hrs;Trusted_Connection=false; multisubnetfailover=true; User ID=sa;Password=B1Admin;";
+            System.Data.SqlClient.SqlConnection connection = new(connectionString);
+            {
+                connection.Open();
+                string sqlQueryReporte = $@"SELECT T0.IdEmpresa,(SELECT T1.RazonSocial FROM Empresas T1
+                                           WHERE T1.Id = T0.IdEmpresa) AS RazonSocial,T0.Granja,T0.FechaMovimiento,T0.Lote,T0.Nave,
+                                           SUM(T0.Cantidad) AS Cantidad
+                                           FROM DetalleCerdo T0
+                                           WHERE T0.Motivo <> 'Traspaso a Engorda'
+                                           AND T0.Tipo = 'E'
+                                           AND T0.IdEmpresa = @IdEmpresa
+                                           AND T0.FechaMovimiento <= @Hasta
+                                           (UPPER ( @CmbGranja ) = 'ALL' OR T0.Granja = @CmbGranja )
+                                           GROUP BY T0.IdEmpresa, T0.Granja, T0.Lote, T0.FechaMovimiento, T0.Nave";
 
+                using (var command = new SqlCommand(sqlQueryReporte, connection))
+                {
+
+                    command.Parameters.AddWithValue("@IdEmpresa",IdEmpresa);
+                    command.Parameters.AddWithValue("@Hasta", FechaHasta.ToString("yyyyMMdd"));
+                    command.Parameters.AddWithValue("@CmbGranja", Granja.ToUpper());
+
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            // Acceder a los resultados
+                            var idEmpresa = reader["IdEmpresa"];
+                            var razonSocial = reader["RazonSocial"];
+                        }    // Otros campos...
+                    }
+                }
+            }
+        }
     }
 }
+<<<<<<< HEAD
+=======
 
 
 
 
 
+>>>>>>> dd1e7969ce0c97ceeee3ee74a5ef2d6bd567a9c5
 /*comentario de prueba*/
