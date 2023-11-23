@@ -87,6 +87,10 @@
 
             </form>
 
+
+             <form method="post">
+
+                <div class="row">
             @if (Model.Granjas.Count > 0)
             {
                 <!-- Col 4 -->
@@ -107,7 +111,7 @@
                 <label for="FechasEntrada"><strong>Fechas de entrada:</strong></label>
             </div>
             <div class="col-md-8 col-sm-12 mt-2">
-                <input type="date" class="custom-date-input" id="FechasEntrada" />
+                <input type="date" class="custom-date-input" id="FechasEntrada" asp-for="FechaInicio">
             </div>
 
 
@@ -119,8 +123,9 @@
 
             @* Col 7 *@
             <div class="col-md-8 col-sm-12 mt-2">
-                <input type="date" class="custom-date-input" id="FechasSalida" />
+                <input type="date" class="custom-date-input" id="FechasSalida" asp-for="FechaFin"/>
             </div>
+
 
 
             <!-- Col 8 -->
@@ -136,10 +141,12 @@
 
            @*  Col 10 *@
             <div class="col-md-4 col-sm-12 mt-2">
-                <button type="button" class="btn btn-primary">Consultar</button>
+                 <button type="submit" class="btn-Consultar">Cargar Granjas</button>
             </div>
 
 
+                </div>
+            </form>
 
         </div>
     </div>
