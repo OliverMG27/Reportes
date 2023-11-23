@@ -132,12 +132,3 @@ namespace Reportes.Pages.RMortalidades
         }
     }
 }
-<<<<<<< HEAD
-=======
-
-
-
-
-
->>>>>>> dd1e7969ce0c97ceeee3ee74a5ef2d6bd567a9c5
-/*comentario de prueba*/

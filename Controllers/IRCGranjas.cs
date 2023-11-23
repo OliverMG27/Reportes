@@ -9,7 +9,7 @@ namespace Reportes.Controllers
         IEnumerable<Granja> GetGranjas(int empresaId);
     }
 
-    public class RCGranjas : IPesadas
+    public class RCGranjas : IRCGranjas
     {
         private readonly string _connectionString;
 
