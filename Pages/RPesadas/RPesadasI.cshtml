@@ -116,7 +116,13 @@
                 <label for="FechasEntrada"><strong>Fechas de entrada:</strong></label>
             </div>
             <div class="col-md-8 col-sm-12 mt-2">
-                        <ejs-calendar id="date"></ejs-calendar>
+
+                <div class="form-group">
+
+                            <input id="fechaI" type="date" name="FechaI">
+
+                </div>
+                        
             </div>
 
 
@@ -128,7 +134,11 @@
 
             @* Col 7 *@
             <div class="col-md-8 col-sm-12 mt-2">
-                        <ejs-calendar id="calendar2"></ejs-calendar>
+                        <div class="form-group">
+
+                            <input id="fechaF" type="date" name="FechaF">
+
+                        </div>
             </div>
 
 
@@ -146,7 +156,7 @@
 
            @*  Col 10 *@
             <div class="col-md-4 col-sm-12 mt-2">
-                 <button type="submit" class="btn-Consultar">Consultar</button>
+                 <button type="submit" class="btn">Cargar Fechas</button>
             </div>
 
 
@@ -156,9 +166,19 @@
         </div>
     </div>
 
+
     <ejs-scripts></ejs-scripts>
 </body>
 </html>
+
+
+
+@section scripts {
+    <script>
+
+    </script>
+
+}
 
 
 
