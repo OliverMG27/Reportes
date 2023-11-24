@@ -6,21 +6,15 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
 <!DOCTYPE html>
 <html>
-
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
 </head>
-
-
 <body>
 
 
@@ -67,203 +61,146 @@
  
     @* Container principal *@
     <div class="container mt-4">
-        <div class="row d-flex flex-column align-items-stretch">
+        <div class="row">
 
             <!-- Col Espacio -->
             <div class="col-md-12 col-sm-12 mt-2">
                 <br />
             </div>
 
-
             <form method="post">
-
                 <div class="row">
 
                     <!-- Col 3 -->
                     <div class="col-md-4 col-sm-8 mt-2">
                         <label for="empresas"><strong>Empresa:</strong></label>
                     </div>
-                    @* Col 3 *@
                     <div class="col-md-4 col-sm-2 mt-2">
-                        <select id="empresas" asp-for="SelectedEmpresaId" asp-items="Model.Empresas">
+                        <select id="empresas" asp-for="SelectedEmpresaId" asp-items="Model.Empresas" class="form-select">
                         </select>
                     </div>
-                    @* Col 3 *@
                     <div class="col-md-4 col-sm-2 mt-2">
                         <button type="submit" class="btn-Granja">Cargar Granjas</button>
                     </div>
 
                 </div>
-
             </form>
 
-
-
             <div class="row">
-            @if (Model.Granjas.Count > 0)
-            {
-                <!-- Col 4 -->
+                @if (Model.Granjas.Count > 0)
+                {
+                    <!-- Col 4 -->
                     <div class="col-md-4 col-sm-8 mt-2">
-                    <label for="granjas"><strong>Granja:</strong></label>
-                </div>
-                @* Col 4 *@
+                        <label for="granjas"><strong>Granja:</strong></label>
+                    </div>
                     <div class="col-md-4 col-sm-2 mt-2">
-                    <select id="granjas" asp-for="SelectedGranjaId" asp-items="Model.Granjas">
-                    </select>
-                </div>
-                @* Col 4 *@
-                <div class="col-md-4 col-sm-2 mt-2">
-                </div>
-
-
-            }
+                        <select id="granjas" asp-for="SelectedGranjaId" asp-items="Model.Granjas" class="form-select">
+                        </select>
+                    </div>
+                    <div class="col-md-4 col-sm-2 mt-2">
+                    </div>
+                }
             </div>
 
-            @* Container doble 1 *@
-         
+            <!-- Container doble 1 -->
             <div class="container">
                 <div class="row">
-                    <div class="col">
+                    <div class="col-md-6">
                         <!-- Col 4 -->
-                        <div class="col-md-4 col-sm-12 mt-2">
+                        <div class="col-12 mt-2">
                             <label for="selectBox text"><strong>Fechas de entrada:</strong></label>
                         </div>
-
                         <!-- Col 4  -->
-                        <div class="col-md-8 col-sm-12 mt-2">
-                            <input type="date" class="custom-date-input" />
+                        <div class="col-12 mt-2">
+                            <input type="date" class="form-control custom-date-input" />
                         </div>
-
-
                         <!-- Col 5 -->
-                        <div class="col-md-4 col-sm-12 mt-2">
+                        <div class="col-12 mt-2">
                             <label for="selectBox text"><strong>Fechas de salida:</strong></label>
                         </div>
-
                         <!-- Col 5  -->
-                        <div class="col-md-8 col-sm-12 mt-2">
-                            <input type="date" class="custom-date-input" />
+                        <div class="col-12 mt-2">
+                            <input type="date" class="form-control custom-date-input" />
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-md-6">
                         <!-- Col 6 -->
                         <div class="col-12 mt-2">
-                            <strong>
-                                Tipo de consumo:
-                            </strong>
+                            <strong>Tipo de consumo:</strong>
                         </div>
-
                         <!-- Col 7 -->
                         <div class="col-12 mt-2">
-                            @* Check marcado *@
+                            <!-- Use col-12 for small screens, col-md-6 for medium screens -->
+                            @*Check 1*@
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                       id="flexRadioDefault" checked>
-                                <label class="form-check-label" for="flexRadioDefault">
-                                    Alimento
-                                </label>
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault" checked>
+                                <label class="form-check-label" for="flexRadioDefault">Alimento</label>
                             </div>
-
-                            @* Check 2 *@
+                            <!-- Add similar form-check elements for other options -->
+                            @*Check 2*@
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                       id="flexRadioDefault1">
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    Materia Prima
-                                </label>
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault" checked>
+                                <label class="form-check-label" for="flexRadioDefault">Materia Prima</label>
                             </div>
-
-                            @* Check 3 *@
+                            @*Check 3*@
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                       id="flexRadioDefault2">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Medicina / Vacunas
-                                </label>
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault" checked>
+                                <label class="form-check-label" for="flexRadioDefault">Medicina / Vacunas</label>
                             </div>
-
-                            @* Check 4 *@
+                            @*Check 4*@
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                       id="flexRadioDefault3">
-                                <label class="form-check-label" for="flexRadioDefault3">
-                                    Diversos
-                                </label>
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault" checked>
+                                <label class="form-check-label" for="flexRadioDefault">Diversos</label>
                             </div>
                     </div>
                 </div>
             </div>
 
+            <br />
 
-
-
-                <br />
-
-                @* Container doble 2 *@
-
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-
-                            <!-- Col 8 -->
-                            <div class="col-12 col-md-12 col-sm-12 mt-2">
-                                <button type="button" class="btn btn-primary">
-                                    Kardex de Alimento
-                                    (Entradas/Salidas)
-                                </button>
-                            </div>
-
-                            <!-- Col 9 -->
-                            <div class="col-12 col-md-12 col-sm-12 mt-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        <strong>Presentar productos con stock CERO</strong>
-                                    </label>
-                                </div>
-                            </div>
-
-
+            <!-- Container doble 2 -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- Col 8 -->
+                        <div class="col-12 mt-2">
+                            <button type="button" class="btn btn-primary">Kardex de Alimento (Entradas/Salidas)</button>
                         </div>
-
-
-                        <div class="col">
-
-                            <!-- Col 10 -->
-                            <div class="col-12 mt-2">
-                                <button type="button" class="btn btn-primary">
-                                    Solo consumo de Alimento
-                                    (Salidas)
-                                </button>
-                                <br />
-                            </div>
-
-                            <!-- Col 11 -->
-                            <div class="col-12 mt-2">
-                                <label for="selectBox text">
-                                    <strong>
-                                        Nota: En este reporte No aplica el excluir los productos con stock CERO, es
-                                        decir, se
-                                        muestran Todos sin excepción
-                                    </strong>
+                        <!-- Col 9 -->
+                        <div class="col-12 mt-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    <strong>Presentar productos con stock CERO</strong>
                                 </label>
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-6">
+                        <!-- Col 10 -->
+                        <div class="col-12 mt-2">
+                            <button type="button" class="btn btn-primary">Solo consumo de Alimento (Salidas)</button>
+                            <br />
+                        </div>
+                        <!-- Col 11 -->
+                        <div class="col-12 mt-2">
+                            <label for="selectBox text">
+                                <strong>
+                                    Nota: En este reporte No aplica el excluir los productos con stock CERO, es decir, se
+                                    muestran Todos sin excepción
+                                </strong>
+                            </label>
+                        </div>
+                    </div>
                 </div>
-
-
-
             </div>
         </div>
     </div>
-
-
+    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
 
 </body>
-
-
 </html>
 
 
@@ -300,6 +237,10 @@
         text-align: center;
         padding: 10px 20px;
         line-height: 12px;
+    }
+
+    .btn-Granja {
+        border-radius: 10px;
     }
 
     .btnOp {

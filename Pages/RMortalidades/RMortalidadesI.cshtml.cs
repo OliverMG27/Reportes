@@ -27,6 +27,7 @@ namespace Reportes.Pages.RMortalidades
         {
             CargarEmpresas();
             Granjas = new List<SelectListItem>();
+            CargarGranjas(SelectedEmpresaId);
         }
 
         public void OnPost()

@@ -18,13 +18,14 @@ namespace Reportes.Pages.RCGranjas
         [BindProperty]
         public int SelectedGranjaId { get; set; }
 
-        public List<SelectListItem> Empresas { get; set; }
-        public List<SelectListItem> Granjas { get; set; }
+        public List<SelectListItem>? Empresas { get; set; }
+        public List<SelectListItem>? Granjas { get; set; }
 
         public void OnGet()
         {
             CargarEmpresas();
             Granjas = new List<SelectListItem>();
+            CargarGranjas(SelectedEmpresaId);
         }
 
         public void OnPost()
