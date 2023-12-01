@@ -33,7 +33,7 @@ namespace Reportes.Pages.RPesadas
         public List<SelectListItem> Granjas { get; set; }
         public List<SelectListItem> Pesadas { get; set; }
 
-
+        
         public void OnGet()
         {
             CargarEmpresas();
