@@ -6,7 +6,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.1/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
 <!DOCTYPE html>
@@ -72,93 +72,127 @@
     <br />
 
     <div class="container mt-4">
+
         <div class="row">
+
 
             <!-- Col 2 -->
             <div class="col-md-12 col-sm-12 mt-2">
                 <br />
             </div>
 
+            @* Form Selects *@
             <form method="post">
-
                 <div class="row">
-
                     <!-- Col 3 -->
                     <div class="col-md-4 col-sm-12 mt-2">
                         <label for="empresas"><strong>Empresa:</strong></label>
                     </div>
                     <div class="col-md-4 col-sm-12 mt-2">
-                        <select id="empresas" asp-for="SelectedEmpresaId" asp-items="Model.Empresas"
+                        <select id="IdEmpresas" asp-for="SelectedEmpresaId" asp-items="Model.Empresas"
                                 class="form-select">
                         </select>
                     </div>
                     <div class="col-md-4 col-sm-12 mt-2">
                         <button type="submit" class="btn btn-primary">Cargar Granjas</button>
                     </div>
-
                 </div>
-
             </form>
 
-            <form method="post">
 
-                <div class="row">
-                    @if (Model.Granjas.Count > 0)
-                    {
-                        <!-- Col 4 -->
+
+
+            <div class="row">
+                @if (Model.Granjas.Count > 0)
+                {
+                    <!-- Col 4 -->
+                    <div class="col-md-4 col-sm-12 mt-2">
+                        <label for="granjas"><strong>Granja:</strong></label>
+                    </div>
+                    <div class="col-md-8 col-sm-12 mt-2">
+                        <select id="NombreGranjas" asp-for="SelectedGranjaId" asp-items="Model.Granjas" class="form-select">
+                        </select>
+                    </div>
+                }
+
+
+                @* Form general *@
+                <form method="post">
+                    <div class="row">
+
+                        <!-- Col 5 -->
                         <div class="col-md-4 col-sm-12 mt-2">
-                            <label for="granjas"><strong>Granja:</strong></label>
+                            <label for="fechaInicio"><strong>Fechas de entrada:</strong></label>
                         </div>
                         <div class="col-md-8 col-sm-12 mt-2">
-                            <select id="granjas" asp-for="SelectedGranjaId" asp-items="Model.Granjas" class="form-select">
-                            </select>
+                            <input type="date" id="selectedFechaEntrada" name="FechaEntrada" value="" min="" max="2023-12-22" asp-for="SelectedFechaEntrada" />
                         </div>
-                    }
 
 
-                    <!-- Col 5 -->
-                    <div class="col-md-4 col-sm-12 mt-2">
-                        <label for="fechaInicio"><strong>Fechas de entrada:</strong></label>
+                        <!-- Col 6 -->
+                        <div class="col-md-4 col-sm-12 mt-2">
+                            <label for="fechaFinal"><strong>Fechas de salida:</strong></label>
+                        </div>
+                        <div class="col-md-8 col-sm-12 mt-2">
+                            <input type="date" id="SelectedFechaSalida" name="FechaSalida" value="" min="2001-04-27" max="2023-12-22" asp-for="SelectedFechaSalida" />
+                        </div>
+
+
+                        <!-- Col 7 -->
+                        <div class="col-md-12 col-sm-12 mt-2">
+                            <br />
+                        </div>
+
+
+                        <!-- Col 8 -->
+                        <div class="col-md-4 col-sm-12 mt-2">
+                            <br />
+                        </div>
+
+                        @* Col 9 *@
+                        <div class="col-md-4 col-sm-12 mt-2">
+                            <button type="submit" class="btn btn-primary"  asp-page-handler="ConsultarPesadas">Consultar</button>
+                        </div>
                     </div>
-                    <div class="col-md-8 col-sm-12 mt-2">
-                        <input id="fechaInicio" type="date" class="form-control">
-                    </div>
+                </form>
 
 
-                    <!-- Col 6 -->
-                    <div class="col-md-4 col-sm-12 mt-2">
-                        <label for="fechaFinal"><strong>Fechas de salida:</strong></label>
-                    </div>
-                    <div class="col-md-8 col-sm-12 mt-2">
-                        <input id="fechaFinal" type="date" class="form-control">
-                    </div>
+                @* Tabla *@
+                @if (Model.ResultadosPesada != null && Model.ResultadosPesada.Any())
+                {
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID Pesada</th>
+                                <th>Granja</th>
+                                <!-- Agrega más columnas según las propiedades en PesadaResult -->
+                                <th>Fecha de Pesada</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var pesada in Model.ResultadosPesada)
+                            {
+                                <tr>
+                                    <td>@pesada.Granja</td>
+                                    <td>@pesada.Peso_Meta</td>
+                                    <!-- Agrega más celdas según las propiedades en PesadaResult -->
+                                    <td>@pesada.FechaHora_Pesada</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
 
 
-                    <!-- Col 7 -->
-                    <div class="col-md-12 col-sm-12 mt-2">
-                        <br />
-                    </div>
 
 
-                    <!-- Col 8 -->
-                    <div class="col-md-4 col-sm-12 mt-2">
-                        <br />
-                    </div>
 
-                    @* Col 9 *@
-                    <div class="col-md-4 col-sm-12 mt-2">
-                        <button type="submit" class="btn">Cargar Fechas</button>
-                    </div>
 
-                    <!-- Col 9 -->
-                    <div class="col-md-4 col-sm-12 mt-2">
-                        <button type="submit" class="btn btn-primary">Cargar Fechas</button>
-                    </div>
 
-                </div>
-            </form>
+            </div>
 
         </div>
+
     </div>
 
 
@@ -169,11 +203,52 @@
 
 
 
+
 @section scripts {
     <script>
 
-    </script>
 
+        //Id Empresa
+        document.addEventListener('DOMContentLoaded', function () {
+            var selectElement = document.getElementById('IdEmpresas');
+            selectElement.addEventListener('change', function () {
+                var selectedValue = selectElement.value;
+                console.log('Id de Empresa Seleccionado:  ', selectedValue);
+            });
+        });
+
+
+        //Nombre Granja
+        document.addEventListener('DOMContentLoaded', function () {
+            var selectElement2 = document.getElementById('NombreGranjas');
+            selectElement2.addEventListener('change', function () {
+                var selectedValue2 = selectElement2.value;
+                console.log('Nombre de Granja Seleccionada:  ', selectedValue2);
+            });
+        });
+
+
+        //Fecha Inicio
+        document.addEventListener('DOMContentLoaded', function () {
+            var selectElementI = document.getElementById('selectedFechaEntrada');
+            selectElementI.addEventListener('change', function () {
+                var selectedValueI = selectElementI.value;
+                console.log('Fecha de Entrada seleccionada:  ', selectedValueI);
+            });
+        });
+
+
+        //Fecha Fin
+        document.addEventListener('DOMContentLoaded', function () {
+            var selectElementF = document.getElementById('SelectedFechaSalida');
+            selectElementF.addEventListener('change', function () {
+                var selectedValueF = selectElementF.value;
+                console.log('Fecha de Salida Seleccionada:  ', selectedValueF);
+            });
+        });
+
+
+    </script>
 }
 
 

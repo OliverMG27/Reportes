@@ -1,5 +1,6 @@
 ﻿namespace Reportes.Models
 {
+
     public class TablaConsumos
     {
 
@@ -15,7 +16,6 @@
         public int Peso_Meta { get; set; }
         public int Diferencia_Peso { get; set; }
         public DateTime FechaHora_Pesada { get; set; }
-        public DateTime FechaInicio { get; set; }
-        public DateTime FechaFin { get; set; }
+
     }
 }
